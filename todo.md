@@ -65,3 +65,11 @@
 - [x] Retirer les composants globaux inutilisés du chargement initial.
 - [x] Mesurer les nouveaux poids de production et contrôler le rendu mobile.
 - [ ] Sauvegarder puis livrer la version accélérée.
+
+## SEO avancé
+
+- [x] Définir le titre, la description, les données structurées et les aperçus de partage.
+- [x] Ajouter robots.txt, sitemap.xml et les balises canoniques d’indexation.
+- [x] Pré-rendre le contenu essentiel de la page d’accueil dans le HTML initial.
+- [x] Créer et exécuter un contrôle SEO automatisé de production.
+- [x] Valider l’indexabilité, le sitemap et la compilation finale.

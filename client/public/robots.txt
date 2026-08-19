@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://novacyber-ksxduw4u.manus.space/sitemap.xml
