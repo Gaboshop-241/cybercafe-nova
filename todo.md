@@ -73,3 +73,10 @@
 - [x] Pré-rendre le contenu essentiel de la page d’accueil dans le HTML initial.
 - [x] Créer et exécuter un contrôle SEO automatisé de production.
 - [x] Valider l’indexabilité, le sitemap et la compilation finale.
+
+## Correctif Vercel
+
+- [x] Inspecter les réglages de sortie, de build et de routage Vercel.
+- [x] Ajouter la configuration Vercel pour déployer uniquement le site statique compilé.
+- [x] Vérifier que le build produit bien le dossier public attendu par Vercel.
+- [x] Tester la correction et préciser la procédure de redéploiement.
