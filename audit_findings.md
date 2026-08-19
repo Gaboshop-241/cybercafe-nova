@@ -49,3 +49,7 @@ Les captures finales desktop et mobile confirment la lisibilité des textes, la 
 ## Test final de la route terminal
 
 Le bouton « Voir les pass » de la bande SMART ROUTE atteint la section des pass (`scrollY = 3085`) et conserve le titre ainsi que les trois actions visibles sous la barre de navigation. Les boutons ont des libellés orientés service : « Voir le pass », « Imprimer » et « Être aidé ».
+
+## Vérification commerciale
+
+Douze liens WhatsApp sont présents. Ils utilisent tous le numéro **24105751036** et contiennent un message prérempli adapté à la visite, à la réservation d’un poste, à l’impression, à l’assistance, aux formations ou aux services numériques. La page affiche également l’adresse « Carrefour du PK11 Marché, Gabon », les horaires d’ouverture confirmés, les jours de fermeture et les tarifs en FCFA.

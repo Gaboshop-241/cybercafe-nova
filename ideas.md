@@ -93,3 +93,9 @@ Le logo est un symbole sans texte : une orbite carrée ouverte, traversée par u
 - Le monogramme **SC** combine désormais un tracé orbital et une diagonale inspirée de la signalétique terminal ; il est répété dans le héros, la navigation et le footer.
 - Les identifiants Terminal, les routes T01–T03, les points d’état et les micro-informations ne sont plus décoratifs : ils structurent le parcours et les services du site.
 - Les appels à l’action utilisent des verbes de service concrets : « Voir le pass », « Imprimer », « Être aidé » et « Préparer ma visite ».
+
+## Style Decisions — routes SMART CYBER PK11
+
+- Chaque grande section s’intègre à une **route T01 à T06** visible dans les étiquettes, les traits de signalétique et les appels à l’action.
+- Le monogramme SC adopte un système d’orbites et de diagonales pour évoquer la circulation de données et l’orientation dans la station.
+- Les photos partagent désormais des bords techniques, une légende terminal et un overlay chaud/charbon discret afin de préserver l’authenticité locale tout en renforçant la cohérence de marque.

@@ -27,4 +27,20 @@
 - [ ] Contrôler les animations, le défilement et l’option de réduction des mouvements.
 - [x] Corriger les défauts observés puis relancer les contrôles.
 - [x] Renforcer la signalétique, le contraste et les appels à l’action selon la revue visuelle.
-- [ ] Sauvegarder et livrer le rapport d’audit avec la version corrigée.
+
+## Contacts et informations réelles
+
+- [x] Ajouter le numéro WhatsApp et le bouton flottant.
+- [x] Créer les messages WhatsApp préremplis pour chaque pass.
+- [x] Ajouter une galerie avec les scènes générées à l’intérieur du cybercafé.
+- [x] Publier l’adresse exacte, les horaires et les tarifs confirmés.
+- [x] Tester les liens de contact et livrer la version enrichie.
+
+## Informations confirmées
+
+- [x] Ajouter le WhatsApp 24105751036 et les messages préremplis des services.
+- [x] Publier l’adresse : Gabon, Carrefour du PK11 Marché.
+- [x] Afficher les horaires : lundi, mardi, mercredi et vendredi, de 8h à 20h ; fermé jeudi, samedi et dimanche.
+- [x] Publier les tarifs réels : impression N&B, couleur, scan, documents, formations Office et utilisation d’ordinateur.
+- [x] Présenter les téléchargements de films, musiques et jeux vidéo, ainsi que les services numériques sur demande.
+- [ ] Sauvegarder et livrer la version commerciale enrichie.
