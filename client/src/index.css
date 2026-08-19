@@ -403,3 +403,63 @@ button:focus-visible, a:focus-visible { outline: 2px solid #f2b84b; outline-offs
 .smart-trust__beacon i { width: 44px; height: 1px; background: #c94d1e; transform: rotate(-27deg); }
 .smart-trust__beacon small { font-size: .5rem; font-weight: 700; letter-spacing: .11em; }
 @media (max-width: 680px) { .smart-hero__orbit { top: 18%; right: -16%; width: 134px; height: 134px; opacity: .7; } .smart-services::before, .smart-life::before, .smart-gallery::before, .smart-pass::before { right: 1.3rem; } }
+
+/* Interactions service + FAQ — station numérique orange */
+.smart-service-card, .smart-trust__grid article { isolation: isolate; transition: transform .34s cubic-bezier(.23,1,.32,1), box-shadow .34s cubic-bezier(.23,1,.32,1), border-color .24s ease; }
+.smart-service-card::before { content: ""; position: absolute; z-index: -1; inset: 0; background: radial-gradient(circle at 88% 12%, rgba(255,250,244,.22), transparent 36%); opacity: 0; transform: scale(.84); transition: opacity .34s ease, transform .5s cubic-bezier(.23,1,.32,1); }
+.smart-service-card > svg, .smart-service-card__line, .smart-service-card h3, .smart-service-card p { transition: transform .34s cubic-bezier(.23,1,.32,1), color .24s ease; }
+.smart-trust__grid article::before { content: ""; position: absolute; z-index: -1; inset: 0; background: linear-gradient(135deg, rgba(236,100,46,.18), transparent 55%); opacity: 0; transition: opacity .3s ease; }
+@media (hover: hover) and (pointer: fine) {
+  .smart-service-card:hover { z-index: 2; transform: translateY(-9px) rotate(-.45deg); box-shadow: 0 20px 38px rgba(28,41,47,.2); }
+  .smart-service-card:hover::before { opacity: 1; transform: scale(1); }
+  .smart-service-card:hover > svg { transform: translateY(-4px) rotate(-4deg) scale(1.08); }
+  .smart-service-card:hover .smart-service-card__line { transform: translateX(5px); }
+  .smart-service-card:hover h3 { transform: translateY(-3px); }
+  .smart-service-card:hover p { transform: translateY(-2px); }
+  .smart-trust__grid article:hover { z-index: 1; transform: translateY(-7px); border-color: #ec642e; box-shadow: 0 15px 30px rgba(28,41,47,.14); }
+  .smart-trust__grid article:hover::before { opacity: 1; }
+}
+
+.smart-faq { display: grid; grid-template-columns: .77fr 1.23fr; gap: 3.4rem; padding: 7.8rem max(2rem, calc((100vw - 1190px) / 2)); background: #1c292f; color: #fffaf4; }
+.smart-faq__intro { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; }
+.smart-faq__intro .smart-kicker { color: #f5a17b; background: rgba(236,100,46,.1); }
+.smart-faq__intro > p:not(.smart-kicker) { max-width: 350px; margin-top: 1.4rem; color: #e5ece7; font-size: .86rem; line-height: 1.75; }
+.smart-faq__intro > a { display: inline-flex; align-items: center; gap: .45rem; margin-top: 1.5rem; padding: .65rem .75rem; border: 1px solid rgba(255,250,244,.46); color: #fffaf4; font-family: "Space Grotesk", sans-serif; font-size: .72rem; font-weight: 700; text-decoration: none; transition: background .18s ease, color .18s ease, transform .18s cubic-bezier(.23,1,.32,1); }
+.smart-faq__intro > a:hover { background: #ec642e; border-color: #ec642e; transform: translateY(-2px); }
+.smart-faq__accordion { border-top: 1px solid rgba(255,250,244,.3); }
+.smart-faq__accordion [data-slot="accordion-item"] { border-bottom-color: rgba(255,250,244,.18); }
+.smart-faq__accordion [data-slot="accordion-trigger"] { padding: 1.2rem 0; color: #fffaf4; font-family: "Space Grotesk", sans-serif; font-size: 1rem; font-weight: 600; letter-spacing: -.025em; }
+.smart-faq__accordion [data-slot="accordion-trigger"]:hover { color: #f5a17b; text-decoration: none; }
+.smart-faq__accordion [data-slot="accordion-trigger"] svg { color: #f08a54; }
+.smart-faq__accordion [data-slot="accordion-content"] { color: #dce4df; font-size: .82rem; line-height: 1.72; }
+.smart-faq__accordion [data-slot="accordion-content"] > div { max-width: 580px; padding-bottom: 1.25rem; }
+@media (max-width: 900px) { .smart-faq { grid-template-columns: 1fr; gap: 2.5rem; padding-inline: 2rem; } .smart-faq__intro { max-width: 540px; } }
+@media (max-width: 680px) { .smart-faq { gap: 2.1rem; padding: 5.2rem 1.3rem; } .smart-faq__accordion [data-slot="accordion-trigger"] { font-size: .91rem; } }
+
+/* Balises SC et lignes de route — renforcement de la station numérique */
+.smart-brand__seal { width: 39px; height: 39px; font-size: .75rem; box-shadow: 0 0 0 4px rgba(236,100,46,.11); }
+.smart-brand__copy strong { font-size: .72rem; letter-spacing: .115em; }
+.smart-brand__copy small { font-size: .52rem; }
+.smart-hero__overlay { background: linear-gradient(90deg, rgba(105,35,12,.86) 0%, rgba(155,49,17,.65) 43%, rgba(155,49,17,.12) 80%), linear-gradient(0deg, rgba(169,55,20,.86) 0%, transparent 46%); }
+.smart-hero__orbit { z-index: 2; opacity: .95; filter: drop-shadow(0 0 18px rgba(255,250,244,.16)); }
+.smart-hero__orbit span { color: #fffaf4; text-shadow: 0 3px 12px rgba(28,41,47,.42); }
+.smart-hero__orbit::before, .smart-hero__orbit::after { border-color: rgba(255,250,244,.52); }
+.smart-hero__brandplate { border-left-width: 3px; box-shadow: -10px 12px 26px rgba(53,17,5,.18); }
+.smart-hero__brandplate-mark { width: 39px; height: 39px; font-size: .78rem; }
+.smart-hero__brandplate strong { font-size: .64rem; letter-spacing: .135em; }
+.smart-kicker { gap: .65rem; border-left-width: 3px; }
+.smart-kicker::after { content: ""; display: inline-block; width: clamp(28px, 4vw, 56px); height: 1px; margin-left: .2rem; background: currentColor; opacity: .58; }
+.smart-services, .smart-trust, .smart-gallery, .smart-pass { position: relative; }
+.smart-services::after, .smart-trust::after, .smart-gallery::after, .smart-pass::after { font-weight: 800; letter-spacing: .14em; }
+.smart-services::after { content: "SC / ROUTE T01 / SERVICES"; position: absolute; right: max(2rem, calc((100vw - 1190px) / 2)); bottom: 1rem; color: #c94d1e; font-family: "DM Mono", monospace; font-size: .5rem; }
+.smart-space__copy::before { content: "SC / ROUTE T02"; position: absolute; z-index: 2; top: 1rem; right: 1.1rem; color: #f5a17b; font-family: "DM Mono", monospace; font-size: .5rem; font-weight: 700; letter-spacing: .12em; }
+.smart-faq { position: relative; }
+.smart-faq::before { content: "SC / ROUTE T05B / RÉPONSES"; position: absolute; top: 1rem; right: max(2rem, calc((100vw - 1190px) / 2)); color: #f5a17b; font-family: "DM Mono", monospace; font-size: .5rem; font-weight: 800; letter-spacing: .14em; }
+.smart-cta__details::before { content: "SC"; display: grid; place-items: center; width: 36px; height: 36px; margin-bottom: .65rem; border: 1px solid #ec642e; color: #ec642e; font-family: "Space Grotesk", sans-serif; font-size: .66rem; font-weight: 700; }
+.smart-footer .smart-brand__seal { width: 43px; height: 43px; }
+@media (max-width: 680px) {
+  .smart-hero__overlay { background: linear-gradient(90deg, rgba(105,35,12,.86), rgba(155,49,17,.2)), linear-gradient(0deg, rgba(169,55,20,.86) 0%, rgba(169,55,20,.18) 60%); }
+  .smart-hero__orbit { opacity: .82; }
+  .smart-services::after, .smart-trust::after, .smart-gallery::after, .smart-pass::after, .smart-faq::before { right: 1.3rem; font-size: .43rem; }
+  .smart-kicker::after { width: 28px; }
+}

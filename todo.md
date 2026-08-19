@@ -80,3 +80,10 @@
 - [x] Ajouter la configuration Vercel pour déployer uniquement le site statique compilé.
 - [x] Vérifier que le build produit bien le dossier public attendu par Vercel.
 - [x] Tester la correction et préciser la procédure de redéploiement.
+
+## Interactions et FAQ
+
+- [x] Définir les réponses FAQ à partir des tarifs, horaires et services confirmés.
+- [x] Ajouter des survols fluides et accessibles sur les cartes de services.
+- [x] Créer la FAQ interactive avec ouverture clavier et indicateurs visuels.
+- [x] Vérifier les animations et la FAQ sur ordinateur et mobile.

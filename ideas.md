@@ -111,3 +111,9 @@ Le logo est un symbole sans texte : une orbite carrée ouverte, traversée par u
 - La route SMART reste lisible de haut en bas : chaque bloc majeur expose une balise SC, une étiquette de route et une ligne de direction.
 - Les sections de vie, galerie et contact alternent désormais les masses ivoire et bleu-charbon afin de conserver l’atmosphère de station numérique.
 - Les grandes balises SC servent d’éléments de fond dans les transitions ; elles n’entravent jamais la lecture des contenus utiles.
+
+## Style Decisions — balises SC et routes visibles
+
+- Le monogramme SC orbital est une balise principale : il doit être identifiable dans le héros, les sections de transition et le footer.
+- L’orange accueille et signale ; les photos locales restent lisibles grâce à des overlays translucides, jamais opaques.
+- Les étiquettes de route sont prolongées par des lignes physiques de signalétique afin que T01–T06 structure le parcours, y compris dans les zones ivoire.

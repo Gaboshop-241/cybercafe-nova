@@ -21,6 +21,7 @@ import {
   Wifi,
   X,
 } from "lucide-react";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 const menuItems = [
   ["Services", "services"],
   ["Le cyber", "cyber"],
@@ -181,6 +182,18 @@ export default function Home() {
             <article><span>03</span><div><FileText /><h3>Documents &amp; formations Office</h3><p>Réalisation de documents à partir de 5 000 FCFA · Formation Suite Office : 15 000 FCFA.</p></div><strong className="smart-price">Dès 5 000 FCFA</strong><a href={whatsappLink("Bonjour SMART CYBER PK11, je souhaite réaliser un document ou suivre une formation Suite Office.")} target="_blank" rel="noreferrer">Être aidé <ArrowUpRight size={17} /></a></article>
           </div>
           <div className="smart-extra-services"><span>EN PLUS SUR DEMANDE</span><p>Téléchargement de films, musiques et jeux vidéo · Assistance aux démarches en ligne · Mise en page de documents et accompagnement numérique.</p><a href={whatsappLink("Bonjour SMART CYBER PK11, je souhaite connaître les services numériques disponibles.")} target="_blank" rel="noreferrer">Demander un service <ArrowUpRight size={17} /></a></div>
+        </section>
+
+        <section className="smart-faq" aria-labelledby="faq-title">
+          <div className="smart-faq__intro"><p className="smart-kicker"><span /> ROUTE T05B / QUESTIONS UTILES</p><h2 id="faq-title">Les réponses<br /><em>avant de venir.</em></h2><p>Consultez les informations essentielles sur les tarifs, les horaires et les services. Une question précise ? Écrivez-nous directement sur WhatsApp.</p><a href={whatsappLink("Bonjour SMART CYBER PK11, j’ai une question sur vos services.")} target="_blank" rel="noreferrer">Poser une question <MessageCircle size={17} /></a></div>
+          <Accordion type="single" collapsible className="smart-faq__accordion">
+            <AccordionItem value="hours"><AccordionTrigger>Quels sont vos jours et horaires d’ouverture ?</AccordionTrigger><AccordionContent>SMART CYBER PK11 est ouvert lundi, mardi, mercredi et vendredi, de 8h à 20h. Le cyber est fermé jeudi, samedi et dimanche.</AccordionContent></AccordionItem>
+            <AccordionItem value="computer"><AccordionTrigger>Combien coûte l’utilisation d’un ordinateur ?</AccordionTrigger><AccordionContent>Un poste informatique avec Wi‑Fi et climatiseur coûte 1 000 FCFA par heure.</AccordionContent></AccordionItem>
+            <AccordionItem value="print"><AccordionTrigger>Quels sont les tarifs d’impression et de scan ?</AccordionTrigger><AccordionContent>L’impression noir et blanc coûte 100 FCFA par page, l’impression couleur 500 FCFA par page et le scan 100 FCFA par page.</AccordionContent></AccordionItem>
+            <AccordionItem value="documents"><AccordionTrigger>Proposez-vous des documents et des formations ?</AccordionTrigger><AccordionContent>Oui. La réalisation de documents commence à 5 000 FCFA. La formation Suite Office est proposée à 15 000 FCFA.</AccordionContent></AccordionItem>
+            <AccordionItem value="booking"><AccordionTrigger>Dois-je prendre rendez-vous ?</AccordionTrigger><AccordionContent>Non, vous pouvez venir directement au Carrefour du PK11 Marché. Pour vérifier un besoin précis, contactez-nous d’abord sur WhatsApp.</AccordionContent></AccordionItem>
+            <AccordionItem value="other"><AccordionTrigger>Quels autres services sont disponibles ?</AccordionTrigger><AccordionContent>Nous proposons aussi le téléchargement de films, de musiques et de jeux vidéo, l’aide aux démarches numériques et la mise en page de documents.</AccordionContent></AccordionItem>
+          </Accordion>
         </section>
 
         <section className="smart-cta" aria-labelledby="cta-title">
