@@ -99,3 +99,9 @@ Le logo est un symbole sans texte : une orbite carrée ouverte, traversée par u
 - Chaque grande section s’intègre à une **route T01 à T06** visible dans les étiquettes, les traits de signalétique et les appels à l’action.
 - Le monogramme SC adopte un système d’orbites et de diagonales pour évoquer la circulation de données et l’orientation dans la station.
 - Les photos partagent désormais des bords techniques, une légende terminal et un overlay chaud/charbon discret afin de préserver l’authenticité locale tout en renforçant la cohérence de marque.
+
+## Style Decisions — balises SMART CYBER
+
+- Le monogramme **SC** devient une balise visible dans le héros, l’en-tête, la route centrale, la section de confiance et le footer.
+- Chaque route T01–T06 porte une ligne directionnelle active afin de fonctionner comme une signalétique et non comme une simple micro-étiquette.
+- Le héros conserve l’accueil orange mais révèle davantage de photographie et de profondeur bleu-charbon pour un rendu plus technique et spatial.

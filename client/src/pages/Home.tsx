@@ -6,9 +6,12 @@ import { useState } from "react";
 import {
   ArrowDownRight,
   ArrowUpRight,
+  BadgeCheck,
   Check,
   Clock3,
   FileText,
+  GraduationCap,
+  MapPin,
   Menu,
   MessageCircle,
   Monitor,
@@ -140,6 +143,17 @@ export default function Home() {
             </div>
             <a className="smart-button smart-button--outline" href={whatsappLink("Bonjour SMART CYBER PK11, je souhaite préparer ma visite.")} target="_blank" rel="noreferrer">Préparer ma visite <ArrowUpRight size={18} /></a>
           </div>
+        </section>
+
+        <section className="smart-trust" aria-labelledby="trust-title">
+          <div className="smart-trust__heading"><div className="smart-trust__beacon" aria-hidden="true"><span>SC</span><i /><small>SMART / ROUTE T02B</small></div><p className="smart-kicker smart-kicker--dark"><span /> ROUTE T02B / NOS ENGAGEMENTS</p><h2 id="trust-title">Des services clairs,<br /><em>sur lesquels compter.</em></h2><p>SMART CYBER PK11 met en avant les informations utiles avant votre arrivée : disponibilité, prix, équipements et accompagnement.</p></div>
+          <div className="smart-trust__grid">
+            <article><BadgeCheck /><span>01 / TRANSPARENCE</span><h3>Tarifs affichés</h3><p>Impression noir &amp; blanc à 100 FCFA, couleur à 500 FCFA et scan à 100 FCFA par page.</p></article>
+            <article><Monitor /><span>02 / ÉQUIPEMENT</span><h3>Postes pratiques</h3><p>Ordinateurs avec Wi‑Fi et climatiseur, facturés à 1 000 FCFA l’heure.</p></article>
+            <article><GraduationCap /><span>03 / ACCOMPAGNEMENT</span><h3>On vous aide</h3><p>Documents à partir de 5 000 FCFA et formations Suite Office à 15 000 FCFA.</p></article>
+            <article><MapPin /><span>04 / PROXIMITÉ</span><h3>Facile à trouver</h3><p>Au Gabon, au Carrefour du PK11 Marché. Accueil ouvert lundi, mardi, mercredi et vendredi.</p></article>
+          </div>
+          <a className="smart-trust__action" href={whatsappLink("Bonjour SMART CYBER PK11, je souhaite avoir des informations avant de venir.")} target="_blank" rel="noreferrer">Obtenir une information <ArrowUpRight size={17} /></a>
         </section>
 
         <section className="smart-life" aria-labelledby="life-title">

@@ -44,3 +44,9 @@
 - [x] Publier les tarifs réels : impression N&B, couleur, scan, documents, formations Office et utilisation d’ordinateur.
 - [x] Présenter les téléchargements de films, musiques et jeux vidéo, ainsi que les services numériques sur demande.
 - [ ] Sauvegarder et livrer la version commerciale enrichie.
+
+## Section de confiance sans avis fictifs
+
+- [x] Présenter les garanties réelles : tarifs affichés, assistance sur place, Wi-Fi et climatiseur.
+- [x] Mettre en valeur les services confirmés et les formations Suite Office.
+- [x] Vérifier le rendu de la section de confiance sur ordinateur et mobile.

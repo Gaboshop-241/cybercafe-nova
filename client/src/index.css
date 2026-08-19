@@ -236,6 +236,23 @@ h1 em, h2 em { color: #ec642e; }
 .smart-button--outline { border-color: rgba(255,250,244,.85); color: #fffaf4; }
 .smart-button--outline:hover { border-color: #fffaf4; background: #fffaf4; color: #c94d1e; }
 
+.smart-trust { position: relative; display: grid; grid-template-columns: .78fr 1.22fr; gap: 3.2rem; padding: 7.5rem max(2rem, calc((100vw - 1190px) / 2)); overflow: hidden; background: #fffaf4; color: #2b2724; }
+.smart-trust::before { content: "SMART / VERIFIED SERVICES / PK11"; position: absolute; top: 1rem; right: max(2rem, calc((100vw - 1190px) / 2)); color: rgba(201,77,30,.16); font-family: "DM Mono", monospace; font-size: .5rem; letter-spacing: .12em; }
+.smart-trust__heading { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; }
+.smart-trust__heading > p:not(.smart-kicker) { max-width: 355px; margin-top: 1.45rem; color: #6d625b; font-size: .86rem; line-height: 1.72; }
+.smart-trust__grid { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; }
+.smart-trust__grid article { min-height: 245px; padding: 1.2rem; border: 1px solid rgba(201,77,30,.22); background: #fff4e8; }
+.smart-trust__grid article:nth-child(1), .smart-trust__grid article:nth-child(4) { background: #1c292f; color: #fffaf4; border-color: #1c292f; }
+.smart-trust__grid svg { width: 22px; height: 22px; color: #c94d1e; stroke-width: 1.7; }
+.smart-trust__grid article:nth-child(1) svg, .smart-trust__grid article:nth-child(4) svg { color: #f08a54; }
+.smart-trust__grid span { display: block; margin-top: 2.1rem; color: #c94d1e; font-family: "DM Mono", monospace; font-size: .5rem; letter-spacing: .1em; }
+.smart-trust__grid article:nth-child(1) span, .smart-trust__grid article:nth-child(4) span { color: #f5a17b; }
+.smart-trust__grid h3 { margin-top: .5rem; font-size: 1.28rem; font-weight: 600; letter-spacing: -.05em; }
+.smart-trust__grid p { margin-top: .6rem; color: #736861; font-size: .73rem; line-height: 1.62; }
+.smart-trust__grid article:nth-child(1) p, .smart-trust__grid article:nth-child(4) p { color: #dfe5df; }
+.smart-trust__action { grid-column: 1 / -1; justify-self: start; display: inline-flex; align-items: center; gap: .45rem; padding: .62rem .75rem; background: #ec642e; color: #fffaf4; font-family: "Space Grotesk", sans-serif; font-size: .73rem; font-weight: 700; text-decoration: none; transition: transform .18s cubic-bezier(.23,1,.32,1), background .18s ease; }
+.smart-trust__action:hover { background: #c94d1e; transform: translateY(-2px); }
+
 .smart-life { background: #fffaf4; color: #2b2724; }
 .smart-life__image::after { background: linear-gradient(0deg, rgba(91,32,11,.75), transparent 55%); }
 .smart-life__image img { filter: saturate(.84) contrast(1.04); }
@@ -308,6 +325,8 @@ button:focus-visible, a:focus-visible { outline: 2px solid #f2b84b; outline-offs
 .smart-whatsapp:hover { transform: translateY(-3px); box-shadow: 0 18px 36px rgba(6,42,22,.32); }
 
 @media (max-width: 900px) {
+  .smart-trust { grid-template-columns: 1fr; padding-inline: 2rem; }
+  .smart-trust__heading { max-width: 540px; }
   .smart-gallery { grid-template-columns: 1fr; padding-inline: 2rem; }
   .smart-gallery__heading { max-width: 520px; }
   .smart-pass__list article { grid-template-columns: 35px minmax(0,1fr) 110px; }
@@ -317,6 +336,10 @@ button:focus-visible, a:focus-visible { outline: 2px solid #f2b84b; outline-offs
 }
 
 @media (max-width: 680px) {
+  .smart-trust { gap: 2.2rem; padding: 5.2rem 1.3rem; }
+  .smart-trust::before { right: 1.3rem; }
+  .smart-trust__grid { grid-template-columns: 1fr; }
+  .smart-trust__grid article { min-height: 215px; }
   .smart-gallery { grid-template-columns: 1fr; gap: 2rem; padding: 5.2rem 1.3rem; }
   .smart-gallery__grid { grid-template-columns: 1fr 1fr; }
   .smart-gallery__item { min-height: 180px; }
@@ -331,6 +354,9 @@ button:focus-visible, a:focus-visible { outline: 2px solid #f2b84b; outline-offs
 }
 
 /* Système de station : monogramme, routes et photo cohérente */
+.smart-hero__overlay { background: linear-gradient(90deg, rgba(54,25,15,.88) 0%, rgba(138,46,17,.64) 42%, rgba(138,46,17,.16) 78%), linear-gradient(0deg, #1c292f 0%, rgba(236,100,46,.62) 33%, transparent 62%); }
+.smart-kicker { gap: .7rem; font-weight: 700; }
+.smart-kicker::after { content: ""; width: 38px; height: 1px; background: currentColor; opacity: .7; }
 .smart-hero__orbit { position: absolute; z-index: 1; top: 30%; right: 9%; display: grid; place-items: center; width: 170px; height: 170px; border: 1px solid rgba(255,250,244,.28); border-radius: 51% 49% 46% 54%; color: rgba(255,250,244,.46); transform: rotate(-28deg); pointer-events: none; }
 .smart-hero__orbit::before, .smart-hero__orbit::after { content: ""; position: absolute; inset: 17px; border: 1px solid rgba(255,250,244,.2); border-radius: inherit; }
 .smart-hero__orbit::after { inset: 34px; }
@@ -341,4 +367,9 @@ button:focus-visible, a:focus-visible { outline: 2px solid #f2b84b; outline-offs
 .smart-space__interior, .smart-life__image, .smart-gallery__item { border: 1px solid rgba(28,41,47,.18); }
 .smart-space__interior::before, .smart-life__image::before, .smart-gallery__item::before { content: ""; position: absolute; z-index: 3; top: .75rem; right: .75rem; width: 20px; height: 20px; border-top: 1px solid rgba(255,250,244,.72); border-right: 1px solid rgba(255,250,244,.72); pointer-events: none; }
 .smart-gallery__item figcaption, .smart-life__image span, .smart-image-label { font-weight: 700; }
+.smart-trust__beacon { display: flex; align-items: center; gap: .52rem; margin-bottom: 1.4rem; color: #c94d1e; font-family: "DM Mono", monospace; }
+.smart-trust__beacon span { display: grid; place-items: center; width: 40px; height: 40px; border: 1px solid #c94d1e; border-radius: 50% 44% 56% 48%; font-family: "Space Grotesk", sans-serif; font-size: .72rem; font-weight: 700; transform: rotate(-27deg); }
+.smart-trust__beacon span::first-letter { display: inline-block; }
+.smart-trust__beacon i { width: 44px; height: 1px; background: #c94d1e; transform: rotate(-27deg); }
+.smart-trust__beacon small { font-size: .5rem; font-weight: 700; letter-spacing: .11em; }
 @media (max-width: 680px) { .smart-hero__orbit { top: 18%; right: -16%; width: 134px; height: 134px; opacity: .7; } .smart-services::before, .smart-life::before, .smart-gallery::before, .smart-pass::before { right: 1.3rem; } }
