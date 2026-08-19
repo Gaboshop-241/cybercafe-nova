@@ -105,3 +105,9 @@ Le logo est un symbole sans texte : une orbite carrée ouverte, traversée par u
 - Le monogramme **SC** devient une balise visible dans le héros, l’en-tête, la route centrale, la section de confiance et le footer.
 - Chaque route T01–T06 porte une ligne directionnelle active afin de fonctionner comme une signalétique et non comme une simple micro-étiquette.
 - Le héros conserve l’accueil orange mais révèle davantage de photographie et de profondeur bleu-charbon pour un rendu plus technique et spatial.
+
+## Style Decisions — rythme de route continu
+
+- La route SMART reste lisible de haut en bas : chaque bloc majeur expose une balise SC, une étiquette de route et une ligne de direction.
+- Les sections de vie, galerie et contact alternent désormais les masses ivoire et bleu-charbon afin de conserver l’atmosphère de station numérique.
+- Les grandes balises SC servent d’éléments de fond dans les transitions ; elles n’entravent jamais la lecture des contenus utiles.

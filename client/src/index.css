@@ -289,6 +289,7 @@ h1 em, h2 em { color: #ec642e; }
 }
 
 /* Contacts réels, galerie et parcours commercial */
+img { max-width: 100%; }
 button:focus-visible, a:focus-visible { outline: 2px solid #f2b84b; outline-offset: 4px; }
 .smart-site a:active { transform: scale(.97); }
 .smart-visit-button { display: inline-flex; align-items: center; gap: .45rem; text-decoration: none; }
@@ -351,6 +352,35 @@ button:focus-visible, a:focus-visible { outline: 2px solid #f2b84b; outline-offs
   .smart-extra-services a { grid-column: auto; }
   .smart-whatsapp { right: 1rem; bottom: 1rem; padding: .75rem; }
   .smart-whatsapp span { display: none; }
+}
+
+/* Rythme continu de station numérique */
+.smart-kicker { display: inline-flex; width: fit-content; padding: .42rem .55rem .42rem .62rem; border-left: 2px solid currentColor; background: rgba(236,100,46,.06); font-size: .61rem; }
+.smart-kicker--dark { background: rgba(28,41,47,.05); }
+.smart-space__copy .smart-kicker, .smart-cta .smart-kicker { background: rgba(255,250,244,.08); }
+.smart-life { background: #1c292f; color: #fffaf4; }
+.smart-life::before { width: 128px; background: #ec642e; }
+.smart-life__heading .smart-kicker { color: #f5a17b; background: rgba(236,100,46,.12); }
+.smart-life__heading h2 { color: #fffaf4; }
+.smart-life::after { content: "SC  /  ROUTE T03  /  VIE AU CYBER"; position: absolute; z-index: 2; top: 1rem; right: max(2rem, calc((100vw - 1190px) / 2)); color: #f5a17b; font-family: "DM Mono", monospace; font-size: .5rem; font-weight: 700; letter-spacing: .12em; }
+.smart-gallery { align-items: stretch; background: #f7eee3; }
+.smart-gallery__heading { position: relative; min-height: 450px; padding: clamp(2rem, 4vw, 4rem); overflow: hidden; background: #1c292f; color: #fffaf4; }
+.smart-gallery__heading::before { content: "SC"; position: absolute; right: -5%; bottom: -13%; color: rgba(236,100,46,.25); font-family: "Space Grotesk", sans-serif; font-size: clamp(11rem, 21vw, 19rem); font-weight: 700; letter-spacing: -.14em; line-height: .7; transform: rotate(-22deg); }
+.smart-gallery__heading > * { position: relative; z-index: 1; }
+.smart-gallery__heading .smart-kicker { color: #f5a17b; background: rgba(236,100,46,.13); }
+.smart-gallery__heading h2 { color: #fffaf4; }
+.smart-gallery__heading > p:not(.smart-kicker) { color: #e5ece7; }
+.smart-gallery::after { content: "SC / ROUTE T04 / GALERIE"; position: absolute; z-index: 2; right: max(2rem, calc((100vw - 1190px) / 2)); bottom: 1rem; color: #c94d1e; font-family: "DM Mono", monospace; font-size: .5rem; font-weight: 700; letter-spacing: .11em; }
+.smart-pass { position: relative; background: #fffaf4; }
+.smart-pass::before { width: 128px; }
+.smart-pass::after { content: "SC / ROUTE T05 / TARIFS"; position: absolute; top: 1rem; right: max(2rem, calc((100vw - 1190px) / 2)); color: #c94d1e; font-family: "DM Mono", monospace; font-size: .5rem; font-weight: 700; letter-spacing: .11em; }
+.smart-pass__headline .smart-kicker { border-left-color: #1c292f; }
+.smart-trust::after { content: "SC / ROUTE T02B / SERVICES VÉRIFIÉS"; position: absolute; right: max(2rem, calc((100vw - 1190px) / 2)); bottom: 1rem; color: #c94d1e; font-family: "DM Mono", monospace; font-size: .5rem; font-weight: 700; letter-spacing: .1em; }
+.smart-cta::after { content: "SC"; position: absolute; z-index: 0; right: 3%; bottom: -17%; color: rgba(236,100,46,.18); font-family: "Space Grotesk", sans-serif; font-size: clamp(11rem, 23vw, 23rem); font-weight: 700; letter-spacing: -.15em; transform: rotate(-24deg); }
+@media (max-width: 680px) {
+  .smart-life::after, .smart-gallery::after, .smart-pass::after, .smart-trust::after { right: 1.3rem; font-size: .44rem; }
+  .smart-gallery__heading { min-height: 320px; padding: 2rem 1.3rem; }
+  .smart-gallery__heading::before { font-size: 11rem; }
 }
 
 /* Système de station : monogramme, routes et photo cohérente */

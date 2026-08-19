@@ -50,3 +50,18 @@
 - [x] Présenter les garanties réelles : tarifs affichés, assistance sur place, Wi-Fi et climatiseur.
 - [x] Mettre en valeur les services confirmés et les formations Suite Office.
 - [x] Vérifier le rendu de la section de confiance sur ordinateur et mobile.
+
+## Plan de performance
+
+- [x] Mesurer le poids des scripts, styles, images et ressources externes.
+- [x] Identifier les optimisations les plus rentables pour le chargement mobile.
+- [x] Rédiger un plan priorisé avec impact, effort et ordre d’exécution.
+
+## Mise en œuvre performance
+
+- [x] Créer des variantes WebP légères des quatre photos principales.
+- [x] Référencer des images responsive et différer les visuels hors premier écran.
+- [x] Prioriser l’image héro et réserver l’espace de tous les médias.
+- [x] Retirer les composants globaux inutilisés du chargement initial.
+- [x] Mesurer les nouveaux poids de production et contrôler le rendu mobile.
+- [ ] Sauvegarder puis livrer la version accélérée.
