@@ -1,6 +1,6 @@
 /**
  * SMART CYBER PK11 — système visuel authentique.
- * Palette bleu-encre, Signal Vert et sable ; mise en valeur nocturne des photos réelles du lieu.
+ * Palette orange et blanc ; mise en valeur lumineuse des photos réelles du lieu.
  */
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap');
 @import "tailwindcss";
@@ -153,3 +153,95 @@ h2 { font-size: clamp(2.9rem, 5.6vw, 5.55rem); font-weight: 600; letter-spacing:
 @media (prefers-reduced-motion: reduce) { *,*::before,*::after { scroll-behavior: auto !important; animation-duration: .001ms !important; transition-duration: .001ms !important; } }
 @media (max-width: 900px) { .smart-hero { padding-inline: 2rem; min-height: 720px; } .smart-hero__brandplate { right: 2rem; } .smart-hero__card { right: 2rem; bottom: 3.2rem; width: 245px; } .smart-services,.smart-life,.smart-pass,.smart-cta { padding-inline: 2rem; } .smart-service-grid { grid-template-columns: 1fr 1fr; } .smart-service-card:first-child { grid-column: span 2; min-height: 300px; } .smart-space { grid-template-columns: 1fr 1fr; } .smart-space__interior { min-height: 650px; } .smart-space__copy { padding: 3.4rem 2rem; } .smart-life { grid-template-columns: 1fr 1fr; } .smart-life__heading { grid-column: span 2; padding: 0 0 1rem; } .smart-life__image { min-height: 405px; } }
 @media (max-width: 680px) { .smart-header { width: calc(100% - 1.15rem); margin-top: .58rem; padding: .65rem .72rem .65rem .85rem; } .smart-desktop-nav,.smart-visit-button { display: none; } .smart-menu-button { display: grid; place-items: center; } .smart-hero { display: block; min-height: 770px; padding: 8.5rem 1.3rem 1.4rem; } .smart-hero__overlay { background: linear-gradient(90deg, rgba(5,20,29,.9), rgba(5,20,29,.28)), linear-gradient(0deg, #071923 0%, rgba(5,20,29,.3) 60%); } h1 { font-size: clamp(3.55rem, 18vw, 5.2rem); } .smart-hero__content { width: 100%; } .smart-hero__lead { font-size: .87rem; } .smart-hero__buttons { flex-direction: column; align-items: flex-start; gap: 1rem; } .smart-hero__brandplate { top: 6.3rem; right: 1.3rem; } .smart-hero__card { right: 1.3rem; bottom: 1.4rem; left: 1.3rem; width: auto; } .smart-hero__card p { margin: 1.35rem 0 .9rem; } .smart-hero__vertical { display: none; } .smart-ribbon { padding: 1rem 1.3rem; } .smart-services,.smart-pass { padding: 5.2rem 1.3rem; } .smart-section-heading,.smart-pass__headline,.smart-pass__intro { display: grid; grid-template-columns: 1fr; gap: 1.25rem; } h2 { font-size: clamp(2.75rem, 13vw, 4rem); } .smart-service-grid { grid-template-columns: 1fr; margin-top: 2.8rem; } .smart-service-card,.smart-service-card:first-child { grid-column: span 1; min-height: 288px; } .smart-space { grid-template-columns: 1fr; } .smart-space__interior { min-height: 470px; } .smart-space__copy { padding: 4.25rem 1.3rem; } .smart-life { grid-template-columns: 1fr; padding: 5.2rem 1.3rem; } .smart-life__heading { grid-column: auto; padding: 0; } .smart-life__image { min-height: 390px; } .smart-pass__intro div { padding: 0; } .smart-pass__list { margin-top: 2.7rem; } .smart-pass__list article { grid-template-columns: 24px minmax(0,1fr) 37px; gap: .7rem; } .smart-pass__list article > div { grid-template-columns: 1fr; } .smart-pass__list article > div > svg { display: none; } .smart-pass__list p { line-height: 1.5; } .smart-pass__list button { width: 36px; height: 36px; padding: 0; font-size: 0; } .smart-pass__list button svg { width: 17px; } .smart-pass__list article:hover { padding-inline: 0; background: transparent; } .smart-cta { grid-template-columns: 1fr; gap: 3rem; min-height: auto; padding: 5.4rem 1.3rem; } .smart-cta__details { gap: .3rem; padding-top: 1.6rem; padding-left: 0; border-top: 1px solid rgba(255,250,242,.2); border-left: 0; } .smart-footer { display: grid; justify-items: start; padding: 1.5rem 1.3rem; } }
+
+/* Orange & blanc — identité SMART CYBER PK11 */
+:root { --background: #fffaf4; --foreground: #2b2724; --primary: #ec642e; --primary-foreground: #fffaf4; }
+html, body, .smart-site { background: #fffaf4; color: #2b2724; }
+.smart-header { border-color: rgba(236,100,46,.35); background: rgba(255,250,244,.94); }
+.smart-brand { color: #2b2724; }
+.smart-brand__seal { background: #ec642e; color: #fffaf4; }
+.smart-brand__copy small { color: #c94d1e; }
+.smart-desktop-nav button { color: #504843; }
+.smart-desktop-nav button:hover, .smart-mobile-nav button:hover { background: rgba(236,100,46,.09); color: #c94d1e; }
+.smart-visit-button { background: #ec642e; color: #fffaf4; }
+.smart-visit-button:hover { background: #f18b56; color: #fffaf4; }
+.smart-menu-button { color: #2b2724; }
+.smart-mobile-nav { border-color: rgba(236,100,46,.32); background: #fffaf4; }
+.smart-mobile-nav button { color: #2b2724; }
+
+.smart-hero { background: #e75e2a; }
+.smart-hero__image { filter: saturate(.82) contrast(1.03) brightness(.78); }
+.smart-hero__overlay { background: linear-gradient(90deg, rgba(141,48,19,.96) 0%, rgba(168,55,20,.75) 42%, rgba(168,55,20,.18) 78%), linear-gradient(0deg, #e75e2a 0%, transparent 43%); }
+.smart-kicker { color: #fff0df; }
+.smart-kicker--dark { color: #c94d1e; }
+h1 em, h2 em { color: #ec642e; }
+.smart-hero h1 em { color: #fffaf4; }
+.smart-hero__lead { color: #fff5ed; }
+.smart-button--orange { background: #fffaf4; color: #c94d1e; }
+.smart-button--orange:hover { background: #2b2724; color: #fffaf4; box-shadow: 0 10px 25px rgba(96,30,8,.25); }
+.smart-text-button { border-color: #fffaf4; color: #fffaf4; }
+.smart-text-button:hover { border-color: #fffaf4; color: #fffaf4; }
+.smart-hero__brandplate { border-left-color: #fffaf4; background: rgba(139,43,15,.55); }
+.smart-hero__brandplate-mark { background: #fffaf4; color: #c94d1e; }
+.smart-hero__brandplate small { color: #fff0df; }
+.smart-hero__card { border-color: rgba(255,250,244,.42); background: rgba(118,36,12,.78); }
+.smart-hero__card-top { color: #fff4e8; }
+.smart-pulse { background: #fffaf4; box-shadow: 0 0 0 4px rgba(255,250,244,.16); }
+.smart-hero__card button:hover { color: #fffaf4; }
+.smart-hero__vertical { color: rgba(255,250,244,.78); }
+.smart-ribbon { border-color: rgba(236,100,46,.22); background: #fffaf4; color: #5d514a; }
+.smart-ribbon span:first-child { color: #c94d1e; }
+.smart-ribbon b { background: #ec642e; box-shadow: 0 0 0 4px rgba(236,100,46,.12); }
+.smart-ribbon i { background: #ec642e; }
+
+.smart-services { background: #fffaf4; color: #2b2724; }
+.smart-services h2 em, .smart-pass h2 em, .smart-life h2 em { color: #c94d1e; }
+.smart-section-heading__text { color: #6d625b; }
+.smart-service-card--ink { background: #ec642e; color: #fffaf4; }
+.smart-service-card--sand { background: #fff4e8; color: #2b2724; border: 1px solid rgba(236,100,46,.3); }
+.smart-service-card--clay { background: #f08a54; color: #fffaf4; }
+.smart-service-card > svg { color: #fffaf4; }
+.smart-service-card--sand > svg { color: #c94d1e; }
+.smart-service-card button:hover { background: #fffaf4; color: #c94d1e; }
+
+.smart-space { background: #fffaf4; color: #2b2724; }
+.smart-space__interior::after { background: linear-gradient(0deg, rgba(92,35,13,.72), rgba(92,35,13,.06) 58%), linear-gradient(90deg, rgba(92,35,13,.15), transparent 45%); }
+.smart-space__interior img { filter: saturate(.86) contrast(1.04); }
+.smart-image-label { background: #ec642e; color: #fffaf4; }
+.smart-space__interior p span { color: #fff1e2; }
+.smart-space__copy { background: #ec642e; color: #fffaf4; }
+.smart-space__copy > p:not(.smart-kicker) { color: #fff2e8; }
+.smart-space__copy .smart-kicker { color: #fff4e8; }
+.smart-check-list { color: #fffaf4; }
+.smart-check-list svg { color: #fffaf4; }
+.smart-button--outline { border-color: rgba(255,250,244,.85); color: #fffaf4; }
+.smart-button--outline:hover { border-color: #fffaf4; background: #fffaf4; color: #c94d1e; }
+
+.smart-life { background: #fffaf4; color: #2b2724; }
+.smart-life__image::after { background: linear-gradient(0deg, rgba(91,32,11,.75), transparent 55%); }
+.smart-life__image img { filter: saturate(.84) contrast(1.04); }
+.smart-life__image span { color: #fff0e0; }
+.smart-pass { background: #fff4e8; color: #2b2724; }
+.smart-pass__intro p { color: #6d625b; }
+.smart-pass__intro div { color: #c94d1e; }
+.smart-pass__list { border-top-color: #ec642e; }
+.smart-pass__list article { border-bottom-color: rgba(201,77,30,.25); }
+.smart-pass__list article:hover { background: rgba(236,100,46,.06); }
+.smart-pass__list article > span, .smart-pass__list article svg { color: #c94d1e; }
+.smart-pass__list p { color: #6d625b; }
+.smart-pass__list button { background: #ec642e; color: #fffaf4; }
+.smart-pass__list button:hover { background: #c94d1e; }
+
+.smart-cta { background: #ec642e; color: #fffaf4; }
+.smart-cta::before { background: radial-gradient(ellipse, rgba(255,250,244,.22), rgba(255,250,244,.06) 40%, transparent 66%); }
+.smart-cta .smart-kicker { color: #fff3e7; }
+.smart-cta h2 em { color: #fffaf4; }
+.smart-cta > div:first-child > p:not(.smart-kicker) { color: #fff1e8; }
+.smart-cta .smart-button--orange { background: #fffaf4; color: #c94d1e; }
+.smart-cta__details { border-left-color: rgba(255,250,244,.38); }
+.smart-cta__details span { color: #fff0e0; }
+.smart-cta__details strong i { background: #fffaf4; box-shadow: 0 0 0 4px rgba(255,250,244,.12); }
+.smart-footer { border-top-color: rgba(236,100,46,.3); background: #fffaf4; }
+.smart-footer p { color: #766a62; }
+.smart-footer > button:last-child { color: #c94d1e; }
+@media (max-width: 680px) { .smart-hero__overlay { background: linear-gradient(90deg, rgba(141,48,19,.92), rgba(168,55,20,.22)), linear-gradient(0deg, #e75e2a 0%, rgba(168,55,20,.24) 60%); } .smart-cta__details { border-top-color: rgba(255,250,244,.38); } }

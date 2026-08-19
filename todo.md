@@ -12,3 +12,10 @@
 - [x] Intégrer la photo intérieure améliorée, la façade et les scènes de vie dans les sections adaptées.
 - [x] Vérifier le rendu responsive et la lisibilité des nouveaux visuels.
 - [ ] Sauvegarder puis livrer la version mise à jour du site.
+
+## Refonte orange et blanc
+
+- [x] Définir les tons orange et blanc à utiliser pour la marque SMART CYBER PK11.
+- [x] Remplacer les accents verts et les fonds bleu-encre par la nouvelle identité cohérente.
+- [ ] Vérifier la lisibilité des photos, des textes et des boutons sur ordinateur et mobile.
+- [ ] Sauvegarder puis livrer la version orange et blanc.

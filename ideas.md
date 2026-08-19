@@ -81,3 +81,8 @@ Le logo est un symbole sans texte : une orbite carrée ouverte, traversée par u
 - L’identité devient une **station numérique de proximité** : fonds bleu-encre, photos locales réelles, étiquettes Terminal, parcours et statuts de disponibilité.
 - Le **Signal Vert #B7FF38** est réservé aux boutons, statuts, icônes et repères d’information ; il n’est pas utilisé comme grand aplat décoratif.
 - Les photographies restent authentiques : la façade, les postes et la salle réelle sont conservés et reçoivent une profondeur bleu-encre avec des overlays de signalétique discrète.
+
+## Décision de couleur — orange et blanc
+
+- À la demande du client, l’identité du site adopte **l’orange #EC642E** et le **blanc chaud #FFFAF4** comme couleurs principales.
+- L’orange structure les actions, la zone d’accueil et les services ; le blanc apporte de la lumière, de l’espace et une excellente lisibilité autour des photos réelles.

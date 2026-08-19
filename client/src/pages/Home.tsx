@@ -1,5 +1,5 @@
 /**
- * SMART CYBER PK11 — identité chaleureuse et authentique.
+ * SMART CYBER PK11 — identité orange et blanc, chaleureuse et authentique.
  * Le design met en avant les photos du vrai lieu : façade, postes réels et vie quotidienne.
  */
 import { useState } from "react";
@@ -72,7 +72,7 @@ export default function Home() {
 
       <main id="accueil">
         <section className="smart-hero" aria-labelledby="smart-title">
-          <img className="smart-hero__image" src="/manus-storage/smart-cyber-pk11-facade-amelioree.png" alt="Entrée de SMART CYBER PK11" />
+          <img className="smart-hero__image" src="/manus-storage/smart-cyber-pk11-facade-amelioree_a2a6a1df.png" alt="Entrée de SMART CYBER PK11" />
           <div className="smart-hero__overlay" aria-hidden="true" />
           <div className="smart-hero__content">
             <p className="smart-kicker"><span /> CYBERCAFÉ DE PROXIMITÉ / PK11</p>
@@ -116,7 +116,7 @@ export default function Home() {
 
         <section className="smart-space" id="cyber" aria-labelledby="space-title">
           <div className="smart-space__interior">
-            <img src="/manus-storage/smart-cyber-pk11-interieur-ameliore.png" alt="Les postes de travail équipés de SMART CYBER PK11" />
+            <img src="/manus-storage/smart-cyber-pk11-interieur-ameliore_cdba95ab.png" alt="Les postes de travail équipés de SMART CYBER PK11" />
             <div className="smart-image-label">LIEU RÉEL / ESPACE DE TRAVAIL</div>
             <p><span>SMART</span> Un poste confortable,<br />pour chaque projet.</p>
           </div>
