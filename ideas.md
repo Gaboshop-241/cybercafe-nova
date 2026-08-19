@@ -74,3 +74,10 @@ Le logo est un symbole sans texte : une orbite carrée ouverte, traversée par u
 - Le premier écran met systématiquement en avant le symbole **orbite / N Nova** avec le mot-signe compact et son descripteur « Cyber Café » ; ce couple est repris au footer.
 - Les zones ivoire intègrent des lignes de parcours, identifiants terminal et statuts afin de préserver la logique de station numérique sur toute la page.
 - Aucune copie administrative ou temporaire n’apparaît : les appels à l’action privilégient « Réserver un poste », « Voir les pass » et « Préparer mon passage ».
+
+## Adaptation de marque — SMART CYBER PK11
+
+- La marque **SMART CYBER PK11**, indiquée par le client, remplace l’ancienne appellation Nova partout dans le site ; le monogramme « SC » et le mot-signe compact servent de repère propriétaire.
+- L’identité devient une **station numérique de proximité** : fonds bleu-encre, photos locales réelles, étiquettes Terminal, parcours et statuts de disponibilité.
+- Le **Signal Vert #B7FF38** est réservé aux boutons, statuts, icônes et repères d’information ; il n’est pas utilisé comme grand aplat décoratif.
+- Les photographies restent authentiques : la façade, les postes et la salle réelle sont conservés et reçoivent une profondeur bleu-encre avec des overlays de signalétique discrète.

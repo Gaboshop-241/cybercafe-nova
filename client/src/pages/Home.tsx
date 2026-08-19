@@ -1,254 +1,164 @@
 /**
- * NOVA CYBER CAFÉ — « Station Nocturne »
- * Une hospitalité numérique bleu nuit, structurée comme une signalétique premium,
- * avec le Signal Vert comme repère pour l’action et la disponibilité.
+ * SMART CYBER PK11 — identité chaleureuse et authentique.
+ * Le design met en avant les photos du vrai lieu : façade, postes réels et vie quotidienne.
  */
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   ArrowDownRight,
   ArrowUpRight,
   Check,
-  ChevronRight,
   Clock3,
   FileText,
-  Gamepad2,
   Menu,
   Monitor,
-  MousePointer2,
   Printer,
-  Sparkles,
+  ScanLine,
+  UsersRound,
   Wifi,
   X,
 } from "lucide-react";
 import { toast } from "sonner";
 
-function goToSection(sectionId: string) {
-  document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+const menuItems = [
+  ["Services", "services"],
+  ["Le cyber", "cyber"],
+  ["Nos pass", "pass"],
+] as const;
+
+function scrollToSection(id: string) {
+  document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 18);
-    handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const navigate = (sectionId: string) => {
+  const navigate = (id: string) => {
     setMenuOpen(false);
-    goToSection(sectionId);
+    scrollToSection(id);
   };
 
-  const showContactHint = () => {
-    toast("Réservation de poste", {
-      description: "Passe au cybercafé pour choisir ton pass et t’installer.",
+  const inviteVisit = () => {
+    toast("Bienvenue chez SMART CYBER PK11", {
+      description: "Passez au cyber pour choisir votre poste et démarrer.",
     });
   };
 
   return (
-    <div className="nova-site">
-      <header className={`site-header ${scrolled ? "site-header--scrolled" : ""}`}>
-        <a className="brand" href="#top" aria-label="Nova Cyber Café — accueil" onClick={() => navigate("top")}>
-          <img src="/manus-storage/nova-symbol_f788e976.png" alt="Symbole Nova" className="brand__symbol" />
-          <span className="brand__lockup"><span className="brand__name">NOVA<span>.</span></span><span className="brand__descriptor">CYBER CAFÉ</span></span>
-        </a>
+    <div className="smart-site">
+      <header className="smart-header">
+        <button className="smart-brand" onClick={() => navigate("accueil")} aria-label="Retour à l’accueil SMART CYBER PK11">
+          <span className="smart-brand__seal">SC</span>
+          <span className="smart-brand__copy"><strong>SMART CYBER</strong><small>PK11</small></span>
+        </button>
 
-        <nav className="desktop-nav" aria-label="Navigation principale">
-          <button onClick={() => navigate("services")}>Services</button>
-          <button onClick={() => navigate("espace")}>L&apos;espace</button>
-          <button onClick={() => navigate("formules")}>Formules</button>
+        <nav className="smart-desktop-nav" aria-label="Navigation principale">
+          {menuItems.map(([label, id]) => <button key={id} onClick={() => navigate(id)}>{label}</button>)}
         </nav>
 
-        <div className="header-action">
-          <button className="availability-pill" onClick={() => navigate("contact")}>
-            <span className="live-dot" />
-            Préparer mon passage
-            <ArrowUpRight size={14} />
-          </button>
-          <button className="menu-toggle" aria-label="Ouvrir le menu" aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>
-            {menuOpen ? <X size={23} /> : <Menu size={23} />}
+        <div className="smart-header__action">
+          <button className="smart-visit-button" onClick={inviteVisit}>Nous visiter <ArrowUpRight size={16} /></button>
+          <button className="smart-menu-button" aria-label="Ouvrir le menu" aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>
+            {menuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
 
         {menuOpen && (
-          <nav className="mobile-nav" aria-label="Navigation mobile">
-            <button onClick={() => navigate("services")}>Services <ChevronRight size={18} /></button>
-            <button onClick={() => navigate("espace")}>L&apos;espace <ChevronRight size={18} /></button>
-            <button onClick={() => navigate("formules")}>Formules <ChevronRight size={18} /></button>
-            <button onClick={() => navigate("contact")}>Nous trouver <ArrowUpRight size={18} /></button>
+          <nav className="smart-mobile-nav" aria-label="Navigation mobile">
+            {menuItems.map(([label, id]) => <button key={id} onClick={() => navigate(id)}>{label}<ArrowUpRight size={17} /></button>)}
+            <button onClick={inviteVisit}>Nous visiter<ArrowUpRight size={17} /></button>
           </nav>
         )}
       </header>
 
-      <main id="top">
-        <section className="hero" aria-labelledby="hero-title">
-          <div className="hero__image" aria-hidden="true">
-            <img src="/manus-storage/nova-cybercafe-hero_56d1d0db.jpg" alt="" />
-          </div>
-          <div className="hero__grain" aria-hidden="true" />
-          <div className="hero__content">
-            <div className="eyebrow eyebrow--light"><span /> LE CYBERCAFÉ, RÉINVENTÉ</div>
-            <h1 id="hero-title">Connecte.<br /><em>Crée.</em> Avance.</h1>
-            <p className="hero__lead">Un espace vivant pour travailler, imprimer, jouer et rester connecté — simplement, rapidement, confortablement.</p>
-            <div className="hero__buttons">
-              <button className="button button--signal" onClick={() => navigate("formules")}>Voir les pass <ArrowDownRight size={19} /></button>
-              <button className="text-link text-link--light" onClick={() => navigate("espace")}>Découvrir l&apos;espace <span>↘</span></button>
+      <main id="accueil">
+        <section className="smart-hero" aria-labelledby="smart-title">
+          <img className="smart-hero__image" src="/manus-storage/smart-cyber-pk11-facade-amelioree.png" alt="Entrée de SMART CYBER PK11" />
+          <div className="smart-hero__overlay" aria-hidden="true" />
+          <div className="smart-hero__content">
+            <p className="smart-kicker"><span /> CYBERCAFÉ DE PROXIMITÉ / PK11</p>
+            <h1 id="smart-title">Vos démarches.<br /><em>Votre espace.</em></h1>
+            <p className="smart-hero__lead">SMART CYBER PK11 vous accueille pour naviguer, imprimer, scanner et avancer sur vos projets en toute simplicité.</p>
+            <div className="smart-hero__buttons">
+              <button className="smart-button smart-button--orange" onClick={() => navigate("pass")}>Découvrir les pass <ArrowDownRight size={19} /></button>
+              <button className="smart-text-button" onClick={() => navigate("cyber")}>Découvrir le cyber <span>↘</span></button>
             </div>
           </div>
-
-          <aside className="hero-status" aria-label="Informations pratiques">
-            <div className="hero-status__top">
-              <span className="status-indicator"><span className="live-dot" /> À VOTRE SERVICE</span>
-              <Wifi size={20} />
-            </div>
-            <p>Un poste, une connexion,<br />un projet qui avance.</p>
-            <button onClick={() => navigate("contact")}>Préparer mon passage <ArrowUpRight size={18} /></button>
-          </aside>
-
-          <div className="hero__station-brand" aria-label="Nova Cyber Café, terminal 01">
-            <img src="/manus-storage/nova-symbol_f788e976.png" alt="" />
-            <div><strong>NOVA STATION</strong><span>CYBER CAFÉ / T-01</span></div>
+          <div className="smart-hero__brandplate"><span className="smart-hero__brandplate-mark">SC</span><div><strong>SMART CYBER PK11</strong><small>TERMINAL / PK11</small></div></div>
+          <div className="smart-hero__card">
+            <div className="smart-hero__card-top"><span className="smart-pulse" /> POSTES DISPONIBLES</div>
+            <p>Connexion, impression<br />et démarches prêtes.</p>
+            <button onClick={inviteVisit}>Passer au cyber <ArrowUpRight size={16} /></button>
           </div>
-
-          <div className="hero__side-label">NOVA / 01—26</div>
+          <div className="smart-hero__vertical">SMART CYBER / PK11</div>
         </section>
 
-        <section className="intro-strip" aria-label="Promesse Nova">
-          <p>Pas seulement un accès Internet.</p>
-          <p>Un <strong>point de départ</strong> pour vos idées.</p>
-          <div className="intro-strip__orb"><Sparkles size={20} /></div>
+        <section className="smart-ribbon" aria-label="Services disponibles">
+          <span><b /> POSTES DISPONIBLES</span><i />
+          <span>TERMINAL 01 / INTERNET</span><i />
+          <span>TERMINAL 02 / IMPRESSION</span><i />
+          <span>SMART CYBER PK11</span>
         </section>
 
-        <section className="services-section" id="services" aria-labelledby="services-title">
-          <div className="station-rail" aria-hidden="true"><span>NOVA / TERMINAL 01</span><i /><span>RÉSEAU DISPONIBLE</span><i /><span>CONNECTER — CRÉER — AVANCER</span></div>
-          <div className="section-header section-header--split">
+        <section className="smart-services" id="services" aria-labelledby="services-title">
+          <div className="smart-section-heading">
             <div>
-              <div className="eyebrow"><span /> 01 / NOS SERVICES</div>
-              <h2 id="services-title">Tout ce qu&apos;il faut<br />pour <em>rester en mouvement.</em></h2>
+              <p className="smart-kicker smart-kicker--dark"><span /> 01 / SERVICES</p>
+              <h2 id="services-title">Le bon service,<br /><em>au bon moment.</em></h2>
             </div>
-            <p>Que ce soit pour un dossier urgent, une session de jeu ou une impression de dernière minute, Nova rend votre temps en ligne plus fluide.</p>
+            <p className="smart-section-heading__text">Un espace simple, équipé et accueillant pour travailler sur Internet, imprimer vos documents ou demander de l’aide.</p>
           </div>
-
-          <div className="services-grid">
-            <article className="service-card service-card--primary">
-              <div className="service-card__number">01</div>
-              <div className="service-card__terminal">TERMINAL / CONNECT</div>
-              <div className="service-card__icon"><Monitor /></div>
-              <div>
-                <h3>Connexion &amp;<br />bureautique</h3>
-                <p>Des postes confortables pour naviguer, étudier, créer ou gérer vos projets.</p>
-              </div>
-              <button onClick={() => navigate("formules")} aria-label="Voir les formules connexion"><ArrowUpRight /></button>
-            </article>
-
-            <article className="service-card service-card--lime">
-              <div className="service-card__number">02</div>
-              <div className="service-card__terminal">TERMINAL / PLAY</div>
-              <div className="service-card__icon"><Gamepad2 /></div>
-              <div>
-                <h3>Gaming<br />station</h3>
-                <p>Votre pause mérite un vrai niveau de jeu.</p>
-              </div>
-              <div className="card-arrow"><ArrowUpRight /></div>
-            </article>
-
-            <article className="service-card service-card--dark">
-              <div className="service-card__number">03</div>
-              <div className="service-card__terminal">TERMINAL / PRINT</div>
-              <div className="service-card__icon"><Printer /></div>
-              <div>
-                <h3>Impression<br />&amp; numérisation</h3>
-                <p>Préparez, imprimez et repartez sans perdre de temps.</p>
-              </div>
-              <div className="card-arrow"><ArrowUpRight /></div>
-            </article>
+          <div className="smart-service-grid">
+            <article className="smart-service-card smart-service-card--ink"><div className="smart-service-card__line">TERMINAL 01 / EN LIGNE</div><Wifi /><h3>Connexion<br />Internet</h3><p>Un poste prêt pour vos recherches, formulaires et démarches numériques.</p><button onClick={() => navigate("pass")}><ArrowUpRight size={19} /></button></article>
+            <article className="smart-service-card smart-service-card--sand"><div className="smart-service-card__line">TERMINAL 02 / DOCUMENTS</div><Printer /><h3>Impression<br />&amp; copies</h3><p>Préparez vos fichiers, imprimez et repartez avec vos documents.</p><button onClick={inviteVisit}><ArrowUpRight size={19} /></button></article>
+            <article className="smart-service-card smart-service-card--clay"><div className="smart-service-card__line">TERMINAL 03 / ASSISTANCE</div><ScanLine /><h3>Scan &amp;<br />accompagnement</h3><p>Une aide pratique lorsque vous avez besoin d’un coup de main.</p><button onClick={inviteVisit}><ArrowUpRight size={19} /></button></article>
           </div>
         </section>
 
-        <section className="space-section" id="espace" aria-labelledby="space-title">
-          <div className="space-section__visual visual-card visual-card--gaming">
-            <img src="/manus-storage/nova-gaming-zone_8b6f2cc9.jpg" alt="Joueurs installés à la station gaming de Nova Cyber Café" />
-            <div className="visual-card__tag">ZONE / PLAY</div>
-            <div className="visual-card__caption"><span>01</span> Le plaisir de jouer,<br />sans compromis.</div>
+        <section className="smart-space" id="cyber" aria-labelledby="space-title">
+          <div className="smart-space__interior">
+            <img src="/manus-storage/smart-cyber-pk11-interieur-ameliore.png" alt="Les postes de travail équipés de SMART CYBER PK11" />
+            <div className="smart-image-label">LIEU RÉEL / ESPACE DE TRAVAIL</div>
+            <p><span>SMART</span> Un poste confortable,<br />pour chaque projet.</p>
           </div>
-
-          <div className="space-section__copy">
-            <div className="eyebrow eyebrow--light"><span /> 02 / L&apos;ESPACE</div>
-            <h2 id="space-title">Votre rythme.<br /><em>Votre place.</em></h2>
-            <p>Nova est pensé pour les journées chargées comme pour les soirées entre amis. Installez-vous, branchez-vous, faites ce que vous avez à faire.</p>
-            <div className="space-benefits">
-              <div><Check size={18} /> Des postes soignés et confortables</div>
-              <div><Check size={18} /> Une ambiance calme et stimulante</div>
-              <div><Check size={18} /> De l&apos;aide quand vous en avez besoin</div>
+          <div className="smart-space__copy">
+            <p className="smart-kicker"><span /> 02 / LE CYBER</p>
+            <h2 id="space-title">Simple. Utile.<br /><em>Prêt pour vous.</em></h2>
+            <p>Nos postes vous donnent l’essentiel pour avancer sereinement. Installez-vous, connectez-vous et profitez d’un accompagnement de proximité.</p>
+            <div className="smart-check-list">
+              <span><Check size={17} /> Des ordinateurs disponibles sur place</span>
+              <span><Check size={17} /> Une salle lumineuse et pratique</span>
+              <span><Check size={17} /> Une équipe à l’écoute de vos besoins</span>
             </div>
-            <button className="button button--outline" onClick={showContactHint}>Réserver un poste <ArrowUpRight size={18} /></button>
-          </div>
-
-          <div className="space-section__productivity visual-card visual-card--productivity">
-            <img src="/manus-storage/nova-productivity-zone_137d560e.jpg" alt="Poste de travail et impression au sein de Nova Cyber Café" />
-            <div className="visual-card__tag">ZONE / WORK</div>
+            <button className="smart-button smart-button--outline" onClick={inviteVisit}>Préparer ma visite <ArrowUpRight size={18} /></button>
           </div>
         </section>
 
-        <section className="pricing-section" id="formules" aria-labelledby="pricing-title">
-          <div className="pricing-topline">
-            <div className="eyebrow"><span /> 03 / FORMULES</div>
-            <p>Choisissez le temps qui vous convient. Les tarifs exacts et promotions sont disponibles directement au café.</p>
-          </div>
-          <div className="pricing-heading">
-            <h2 id="pricing-title">Du temps bien<br /><em>utilisé.</em></h2>
-            <div className="pricing-heading__note"><Clock3 size={19} /> Simple, souple, à votre rythme.</div>
-          </div>
+        <section className="smart-life" aria-labelledby="life-title">
+          <div className="smart-life__heading"><p className="smart-kicker smart-kicker--dark"><span /> 03 / LA VIE AU CYBER</p><h2 id="life-title">Ici, les projets<br /><em>prennent vie.</em></h2></div>
+          <div className="smart-life__image smart-life__image--study"><img src="/manus-storage/smart-cyber-pk11-vie-interieure-etudes_1ca88615.jpg" alt="Clients adultes utilisant les ordinateurs de SMART CYBER PK11" /><div><span>01 / ÉTUDIER</span><strong>Apprendre, chercher,<br />préparer l’avenir.</strong></div></div>
+          <div className="smart-life__image smart-life__image--help"><img src="/manus-storage/smart-cyber-pk11-vie-interieure-services_055faf80.jpg" alt="Accompagnement d’un client au sein de SMART CYBER PK11" /><div><span>02 / AVANCER</span><strong>Un conseil utile,<br />au bon moment.</strong></div></div>
+        </section>
 
-          <div className="pricing-list" role="list">
-            <article className="price-row" role="listitem">
-              <div className="price-row__index">01</div>
-              <div className="price-row__main"><Wifi /><div><span className="price-row__status"><i /> RÉSEAU DISPONIBLE</span><h3>Pass Connexion</h3><p>Navigation, études, recherche et démarches en ligne.</p></div></div>
-              <div className="price-row__detail"><strong>FLEX</strong><span>À la carte</span></div>
-              <button onClick={showContactHint}>Choisir <ArrowUpRight size={18} /></button>
-            </article>
-            <article className="price-row" role="listitem">
-              <div className="price-row__index">02</div>
-              <div className="price-row__main"><Gamepad2 /><div><span className="price-row__status"><i /> STATIONS PRÊTES</span><h3>Pass Gaming</h3><p>Une session dédiée sur nos stations de jeu.</p></div></div>
-              <div className="price-row__detail"><strong>PLAY</strong><span>À la carte</span></div>
-              <button onClick={showContactHint}>Choisir <ArrowUpRight size={18} /></button>
-            </article>
-            <article className="price-row" role="listitem">
-              <div className="price-row__index">03</div>
-              <div className="price-row__main"><FileText /><div><span className="price-row__status"><i /> SERVICE ACTIF</span><h3>Pass Print</h3><p>Impression, scan et préparation de vos documents.</p></div></div>
-              <div className="price-row__detail"><strong>PRINT</strong><span>Sur place</span></div>
-              <button onClick={showContactHint}>Choisir <ArrowUpRight size={18} /></button>
-            </article>
+        <section className="smart-pass" id="pass" aria-labelledby="pass-title">
+          <div className="smart-pass__headline"><p className="smart-kicker smart-kicker--dark"><span /> 04 / NOS PASS</p><h2 id="pass-title">Passez à l&apos;action,<br /><em>simplement.</em></h2></div>
+          <div className="smart-pass__intro"><p>Choisissez le service dont vous avez besoin et rendez-vous directement au cyber. L’équipe vous accueille sur place.</p><div><Clock3 size={19} /> Sans rendez-vous</div></div>
+          <div className="smart-pass__list">
+            <article><span>01</span><div><Wifi /><h3>Pass Connexion</h3><p>Internet, recherches et démarches en ligne.</p></div><button onClick={inviteVisit}>Choisir <ArrowUpRight size={17} /></button></article>
+            <article><span>02</span><div><Printer /><h3>Pass Impression</h3><p>Impressions, copies et préparation de documents.</p></div><button onClick={inviteVisit}>Choisir <ArrowUpRight size={17} /></button></article>
+            <article><span>03</span><div><UsersRound /><h3>Pass Assistance</h3><p>Une aide pratique pour vos démarches numériques.</p></div><button onClick={inviteVisit}>Choisir <ArrowUpRight size={17} /></button></article>
           </div>
         </section>
 
-        <section className="contact-section" id="contact" aria-labelledby="contact-title">
-          <div className="contact-section__beam" aria-hidden="true" />
-          <div className="contact-section__content">
-            <div className="eyebrow eyebrow--light"><span /> NOVA EST PRÊT</div>
-            <h2 id="contact-title">Passe en<br /><em>mode productif.</em></h2>
-            <p>Choisis ton pass, passe au cybercafé et installe-toi. Notre équipe t’oriente dès ton arrivée.</p>
-            <button className="button button--signal" onClick={showContactHint}>Réserver un poste <ArrowUpRight size={19} /></button>
-          </div>
-          <div className="contact-section__details">
-            <div><span>ARRIVÉE</span><strong>Passe directement au café</strong></div>
-            <div><span>PASS</span><strong>Choisis-le au comptoir</strong></div>
-            <div><span>ACCUEIL</span><strong>On t’oriente sur place</strong></div>
-          </div>
-          <MousePointer2 className="contact-section__pointer" size={40} />
+        <section className="smart-cta" aria-labelledby="cta-title">
+          <div><p className="smart-kicker"><span /> SMART CYBER PK11 / PRÊT MAINTENANT</p><h2 id="cta-title">Un besoin en ligne ?<br /><em>Votre poste vous attend.</em></h2><p>Pour une recherche, un document ou une démarche, passez directement au PK11.</p><button className="smart-button smart-button--orange" onClick={inviteVisit}>Passer au cyber <ArrowUpRight size={19} /></button></div>
+          <div className="smart-cta__details"><span>STATUT</span><strong><i /> Accueil sur place</strong><span>TERMINAUX</span><strong>Internet · Impression · Scan</strong><span>ESPRIT SMART</span><strong>Simple, rapide, humain</strong></div>
         </section>
       </main>
 
-      <footer className="site-footer">
-        <a className="brand" href="#top" onClick={() => navigate("top")}>
-          <img src="/manus-storage/nova-symbol_f788e976.png" alt="" className="brand__symbol" />
-          <span className="brand__lockup"><span className="brand__name">NOVA<span>.</span></span><span className="brand__descriptor">CYBER CAFÉ</span></span>
-        </a>
-        <p>© 2026 Nova Cyber Café. Connecter les idées, simplement.</p>
-        <button onClick={() => navigate("top")}>RETOUR EN HAUT <ArrowUpRight size={15} /></button>
+      <footer className="smart-footer">
+        <button className="smart-brand" onClick={() => navigate("accueil")}><span className="smart-brand__seal">SC</span><span className="smart-brand__copy"><strong>SMART CYBER</strong><small>PK11</small></span></button>
+        <p>© 2026 SMART CYBER PK11 · Votre espace numérique de proximité.</p>
+        <button onClick={() => navigate("accueil")}>RETOUR EN HAUT <ArrowUpRight size={15} /></button>
       </footer>
     </div>
   );
