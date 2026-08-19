@@ -26,11 +26,17 @@ const menuItems = [
 ] as const;
 
 function scrollToSection(id: string) {
+  if (id === "accueil") {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    return;
+  }
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => setMenuOpen((isOpen) => !isOpen);
 
   const navigate = (id: string) => {
     setMenuOpen(false);
@@ -56,14 +62,14 @@ export default function Home() {
         </nav>
 
         <div className="smart-header__action">
-          <button className="smart-visit-button" onClick={inviteVisit}>Nous visiter <ArrowUpRight size={16} /></button>
-          <button className="smart-menu-button" aria-label="Ouvrir le menu" aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>
+          <button className="smart-visit-button" onClick={inviteVisit}>Préparer ma visite <ArrowUpRight size={16} /></button>
+          <button className="smart-menu-button" aria-label={menuOpen ? "Fermer le menu" : "Ouvrir le menu"} aria-controls="smart-mobile-navigation" aria-expanded={menuOpen} onClick={toggleMenu}>
             {menuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
 
         {menuOpen && (
-          <nav className="smart-mobile-nav" aria-label="Navigation mobile">
+          <nav className="smart-mobile-nav" id="smart-mobile-navigation" aria-label="Navigation mobile">
             {menuItems.map(([label, id]) => <button key={id} onClick={() => navigate(id)}>{label}<ArrowUpRight size={17} /></button>)}
             <button onClick={inviteVisit}>Nous visiter<ArrowUpRight size={17} /></button>
           </nav>
@@ -97,6 +103,12 @@ export default function Home() {
           <span>TERMINAL 01 / INTERNET</span><i />
           <span>TERMINAL 02 / IMPRESSION</span><i />
           <span>SMART CYBER PK11</span>
+        </section>
+
+        <section className="smart-terminal-panel" aria-label="Parcours des services SMART CYBER PK11">
+          <div className="smart-terminal-panel__identity"><span className="smart-terminal-panel__mark">SC</span><div><strong>SMART ROUTE</strong><small>PK11 / SERVICE LIVE</small></div></div>
+          <div className="smart-terminal-panel__route"><span><b /> T01 / INTERNET</span><i>→</i><span><b /> T02 / IMPRESSION</span><i>→</i><span><b /> T03 / ASSISTANCE</span></div>
+          <button onClick={() => navigate("pass")}>Voir les pass <ArrowUpRight size={16} /></button>
         </section>
 
         <section className="smart-services" id="services" aria-labelledby="services-title">
@@ -143,9 +155,9 @@ export default function Home() {
           <div className="smart-pass__headline"><p className="smart-kicker smart-kicker--dark"><span /> 04 / NOS PASS</p><h2 id="pass-title">Passez à l&apos;action,<br /><em>simplement.</em></h2></div>
           <div className="smart-pass__intro"><p>Choisissez le service dont vous avez besoin et rendez-vous directement au cyber. L’équipe vous accueille sur place.</p><div><Clock3 size={19} /> Sans rendez-vous</div></div>
           <div className="smart-pass__list">
-            <article><span>01</span><div><Wifi /><h3>Pass Connexion</h3><p>Internet, recherches et démarches en ligne.</p></div><button onClick={inviteVisit}>Choisir <ArrowUpRight size={17} /></button></article>
-            <article><span>02</span><div><Printer /><h3>Pass Impression</h3><p>Impressions, copies et préparation de documents.</p></div><button onClick={inviteVisit}>Choisir <ArrowUpRight size={17} /></button></article>
-            <article><span>03</span><div><UsersRound /><h3>Pass Assistance</h3><p>Une aide pratique pour vos démarches numériques.</p></div><button onClick={inviteVisit}>Choisir <ArrowUpRight size={17} /></button></article>
+            <article><span>01</span><div><Wifi /><h3>Pass Connexion</h3><p>Internet, recherches et démarches en ligne.</p></div><button onClick={inviteVisit}>Voir le pass <ArrowUpRight size={17} /></button></article>
+            <article><span>02</span><div><Printer /><h3>Pass Impression</h3><p>Impressions, copies et préparation de documents.</p></div><button onClick={inviteVisit}>Imprimer <ArrowUpRight size={17} /></button></article>
+            <article><span>03</span><div><UsersRound /><h3>Pass Assistance</h3><p>Une aide pratique pour vos démarches numériques.</p></div><button onClick={inviteVisit}>Être aidé <ArrowUpRight size={17} /></button></article>
           </div>
         </section>
 

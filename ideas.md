@@ -86,3 +86,10 @@ Le logo est un symbole sans texte : une orbite carrée ouverte, traversée par u
 
 - À la demande du client, l’identité du site adopte **l’orange #EC642E** et le **blanc chaud #FFFAF4** comme couleurs principales.
 - L’orange structure les actions, la zone d’accueil et les services ; le blanc apporte de la lumière, de l’espace et une excellente lisibilité autour des photos réelles.
+
+## Style Decisions — station numérique orange
+
+- **Orange #EC642E** reste le signal principal, mais les zones bleu-charbon servent de contraste technique afin que l’orange garde son impact.
+- Le monogramme **SC** combine désormais un tracé orbital et une diagonale inspirée de la signalétique terminal ; il est répété dans le héros, la navigation et le footer.
+- Les identifiants Terminal, les routes T01–T03, les points d’état et les micro-informations ne sont plus décoratifs : ils structurent le parcours et les services du site.
+- Les appels à l’action utilisent des verbes de service concrets : « Voir le pass », « Imprimer », « Être aidé » et « Préparer ma visite ».

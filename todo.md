@@ -19,3 +19,12 @@
 - [x] Remplacer les accents verts et les fonds bleu-encre par la nouvelle identité cohérente.
 - [ ] Vérifier la lisibilité des photos, des textes et des boutons sur ordinateur et mobile.
 - [ ] Sauvegarder puis livrer la version orange et blanc.
+
+## Audit fonctionnel et visuel
+
+- [ ] Examiner la page sur ordinateur et mobile, y compris les contrastes et les photos.
+- [ ] Tester le menu, chaque lien de navigation, les ancres et les appels à l’action.
+- [ ] Contrôler les animations, le défilement et l’option de réduction des mouvements.
+- [x] Corriger les défauts observés puis relancer les contrôles.
+- [x] Renforcer la signalétique, le contraste et les appels à l’action selon la revue visuelle.
+- [ ] Sauvegarder et livrer le rapport d’audit avec la version corrigée.
