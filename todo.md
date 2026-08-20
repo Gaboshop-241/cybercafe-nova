@@ -87,3 +87,11 @@
 - [x] Ajouter des survols fluides et accessibles sur les cartes de services.
 - [x] Créer la FAQ interactive avec ouverture clavier et indicateurs visuels.
 - [x] Vérifier les animations et la FAQ sur ordinateur et mobile.
+
+## Médias Vercel et avis authentiques
+
+- [x] Rendre les images WebP accessibles depuis le dossier public du build Vercel.
+- [x] Ajouter le monogramme SC comme favicon et logo de partage.
+- [x] Ajouter une section invitant les clients à laisser un avis réel sur WhatsApp.
+- [x] Préparer un emplacement pour publier uniquement les témoignages validés.
+- [x] Vérifier les images, le favicon et le parcours d’avis dans le build Vercel.

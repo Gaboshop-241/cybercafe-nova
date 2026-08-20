@@ -436,12 +436,28 @@ button:focus-visible, a:focus-visible { outline: 2px solid #f2b84b; outline-offs
 @media (max-width: 900px) { .smart-faq { grid-template-columns: 1fr; gap: 2.5rem; padding-inline: 2rem; } .smart-faq__intro { max-width: 540px; } }
 @media (max-width: 680px) { .smart-faq { gap: 2.1rem; padding: 5.2rem 1.3rem; } .smart-faq__accordion [data-slot="accordion-trigger"] { font-size: .91rem; } }
 
+.smart-reviews { display: grid; grid-template-columns: 1.05fr .95fr; gap: 3.5rem; padding: 7.5rem max(2rem, calc((100vw - 1190px) / 2)); background: #fff4e8; color: #2b2724; }
+.smart-reviews__copy { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; }
+.smart-reviews__copy > p:not(.smart-kicker) { max-width: 425px; margin-top: 1.4rem; color: #6d625b; font-size: .87rem; line-height: 1.75; }
+.smart-reviews__copy a { display: inline-flex; align-items: center; gap: .5rem; margin-top: 1.5rem; padding: .72rem .82rem; background: #ec642e; color: #fffaf4; font-family: "Space Grotesk", sans-serif; font-size: .75rem; font-weight: 700; text-decoration: none; transition: background .18s ease, transform .18s cubic-bezier(.23,1,.32,1); }
+.smart-reviews__copy a:hover { background: #c94d1e; transform: translateY(-2px); }
+.smart-reviews__promise { position: relative; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; min-height: 315px; padding: 2rem; overflow: hidden; background: #1c292f; color: #fffaf4; }
+.smart-reviews__promise::after { content: "SC"; position: absolute; right: -3%; bottom: -27%; color: rgba(236,100,46,.22); font-family: "Space Grotesk", sans-serif; font-size: 11rem; font-weight: 700; letter-spacing: -.14em; transform: rotate(-22deg); }
+.smart-reviews__promise > * { position: relative; z-index: 1; }
+.smart-reviews__promise > span { color: #f5a17b; font-family: "DM Mono", monospace; font-size: .54rem; letter-spacing: .11em; }
+.smart-reviews__promise strong { max-width: 340px; margin-top: 1rem; font-family: "Space Grotesk", sans-serif; font-size: clamp(1.45rem, 2.7vw, 2.25rem); font-weight: 600; letter-spacing: -.06em; line-height: .98; }
+.smart-reviews__promise p { max-width: 350px; margin-top: 1rem; color: #dce4df; font-size: .8rem; line-height: 1.7; }
+.smart-reviews__promise div { display: flex; align-items: center; gap: .45rem; margin-top: 1.2rem; color: #fffaf4; font-size: .68rem; font-weight: 700; }
+.smart-reviews__promise i { width: 7px; height: 7px; border-radius: 50%; background: #ec642e; box-shadow: 0 0 0 4px rgba(236,100,46,.15); }
+@media (max-width: 900px) { .smart-reviews { grid-template-columns: 1fr; gap: 2.5rem; padding-inline: 2rem; } }
+@media (max-width: 680px) { .smart-reviews { gap: 2rem; padding: 5.2rem 1.3rem; } .smart-reviews__promise { min-height: 270px; padding: 1.55rem; } }
+
 /* Balises SC et lignes de route — renforcement de la station numérique */
 .smart-brand__seal { width: 39px; height: 39px; font-size: .75rem; box-shadow: 0 0 0 4px rgba(236,100,46,.11); }
 .smart-brand__copy strong { font-size: .72rem; letter-spacing: .115em; }
 .smart-brand__copy small { font-size: .52rem; }
-.smart-hero__overlay { background: linear-gradient(90deg, rgba(105,35,12,.86) 0%, rgba(155,49,17,.65) 43%, rgba(155,49,17,.12) 80%), linear-gradient(0deg, rgba(169,55,20,.86) 0%, transparent 46%); }
-.smart-hero__orbit { z-index: 2; opacity: .95; filter: drop-shadow(0 0 18px rgba(255,250,244,.16)); }
+.smart-hero__overlay { background: linear-gradient(90deg, rgba(75,29,13,.78) 0%, rgba(151,49,18,.5) 43%, rgba(155,49,17,.06) 80%), linear-gradient(0deg, rgba(151,49,18,.72) 0%, transparent 46%); }
+.smart-hero__orbit { z-index: 2; width: 205px; height: 205px; opacity: .98; filter: drop-shadow(0 0 18px rgba(255,250,244,.16)); }
 .smart-hero__orbit span { color: #fffaf4; text-shadow: 0 3px 12px rgba(28,41,47,.42); }
 .smart-hero__orbit::before, .smart-hero__orbit::after { border-color: rgba(255,250,244,.52); }
 .smart-hero__brandplate { border-left-width: 3px; box-shadow: -10px 12px 26px rgba(53,17,5,.18); }
@@ -449,6 +465,8 @@ button:focus-visible, a:focus-visible { outline: 2px solid #f2b84b; outline-offs
 .smart-hero__brandplate strong { font-size: .64rem; letter-spacing: .135em; }
 .smart-kicker { gap: .65rem; border-left-width: 3px; }
 .smart-kicker::after { content: ""; display: inline-block; width: clamp(28px, 4vw, 56px); height: 1px; margin-left: .2rem; background: currentColor; opacity: .58; }
+.smart-services, .smart-trust, .smart-reviews, .smart-life, .smart-gallery, .smart-pass, .smart-faq { border-top: 1px solid rgba(236,100,46,.18); }
+.smart-services > *, .smart-trust > *, .smart-reviews > *, .smart-life > *, .smart-gallery > *, .smart-pass > *, .smart-faq > * { position: relative; }
 .smart-services, .smart-trust, .smart-gallery, .smart-pass { position: relative; }
 .smart-services::after, .smart-trust::after, .smart-gallery::after, .smart-pass::after { font-weight: 800; letter-spacing: .14em; }
 .smart-services::after { content: "SC / ROUTE T01 / SERVICES"; position: absolute; right: max(2rem, calc((100vw - 1190px) / 2)); bottom: 1rem; color: #c94d1e; font-family: "DM Mono", monospace; font-size: .5rem; }
@@ -458,8 +476,8 @@ button:focus-visible, a:focus-visible { outline: 2px solid #f2b84b; outline-offs
 .smart-cta__details::before { content: "SC"; display: grid; place-items: center; width: 36px; height: 36px; margin-bottom: .65rem; border: 1px solid #ec642e; color: #ec642e; font-family: "Space Grotesk", sans-serif; font-size: .66rem; font-weight: 700; }
 .smart-footer .smart-brand__seal { width: 43px; height: 43px; }
 @media (max-width: 680px) {
-  .smart-hero__overlay { background: linear-gradient(90deg, rgba(105,35,12,.86), rgba(155,49,17,.2)), linear-gradient(0deg, rgba(169,55,20,.86) 0%, rgba(169,55,20,.18) 60%); }
-  .smart-hero__orbit { opacity: .82; }
+  .smart-hero__overlay { background: linear-gradient(90deg, rgba(75,29,13,.8), rgba(151,49,18,.14)), linear-gradient(0deg, rgba(151,49,18,.75) 0%, rgba(151,49,18,.12) 60%); }
+  .smart-hero__orbit { width: 150px; height: 150px; opacity: .86; }
   .smart-services::after, .smart-trust::after, .smart-gallery::after, .smart-pass::after, .smart-faq::before { right: 1.3rem; font-size: .43rem; }
   .smart-kicker::after { width: 28px; }
 }

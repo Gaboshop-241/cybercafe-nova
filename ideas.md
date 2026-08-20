@@ -117,3 +117,8 @@ Le logo est un symbole sans texte : une orbite carrée ouverte, traversée par u
 - Le monogramme SC orbital est une balise principale : il doit être identifiable dans le héros, les sections de transition et le footer.
 - L’orange accueille et signale ; les photos locales restent lisibles grâce à des overlays translucides, jamais opaques.
 - Les étiquettes de route sont prolongées par des lignes physiques de signalétique afin que T01–T06 structure le parcours, y compris dans les zones ivoire.
+
+## Style Decisions — profondeur locale et route continue
+
+- La façade et les photographies réelles restent visibles sous les overlays : l’orange crée l’accueil, le charbon apporte la profondeur technique.
+- Chaque route T01–T06 est séparée par une frontière orange discrète et une ligne de signalétique lisible ; la progression doit rester perceptible sur fond ivoire comme sur fond charbon.

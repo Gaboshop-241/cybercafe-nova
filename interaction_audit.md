@@ -12,6 +12,12 @@ L’ouverture de la question sur le prix de l’ordinateur ferme la réponse pr�
 
 Les contrôles desktop et mobile confirment que la FAQ reste lisible, que les routes visibles ne débordent pas et que les cartes conservent une présentation stable sur les écrans tactiles. Les survols sont volontairement limités aux appareils compatibles avec un pointeur fin.
 
+## Médias publics Vercel
+
+La version WebP de la façade est servie avec succès depuis `/media/` dans l’application. Le favicon orbital `SC` est également disponible depuis `/smart-cyber-mark.svg`. Ces deux ressources seront ainsi incluses dans la sortie statique attendue par Vercel.
+
+Le bouton « Laisser un avis » génère un message WhatsApp prérempli comprenant les champs prénom ou initiales, service utilisé et avis. La section de confiance rappelle que toute publication exige l’accord du client ; aucun témoignage fictif n’est affiché.
+
 ## Survols
 
 Les cartes de services et les cartes de confiance possèdent désormais des transitions GPU sur `transform`, `opacity`, couleurs et ombres. Les survols ne sont appliqués qu’aux appareils dotés d’un pointeur fin ; l’expérience tactile reste stable.
