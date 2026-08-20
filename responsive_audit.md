@@ -10,3 +10,7 @@ Les tests suivants portent sur une meilleure adaptation des lignes de route, des
 ## Validation après ajustements
 
 Les nouvelles captures à **360 px** et **768 px** confirment que les blocs principaux conservent leurs proportions : les routes terminal passent à la ligne sans débordement, les titres restent lisibles, les cartes prennent la largeur disponible et les zones WhatsApp/retour en haut restent séparées. Les grilles de services, de confiance, de galerie et de tarifs restent utilisables aux deux formats contrôlés.
+
+## Rythme vertical mobile
+
+La capture mobile finale confirme une respiration plus régulière : les en-têtes de section, les paragraphes, les cartes et les actions possèdent désormais des intervalles cohérents. Les zones dense — tarifs, FAQ et cartes de services — conservent une séparation claire, sans créer de rupture excessive entre les sections.

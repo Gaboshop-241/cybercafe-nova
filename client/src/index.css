@@ -498,3 +498,66 @@ button:focus-visible, a:focus-visible { outline: 2px solid #f2b84b; outline-offs
 @media (prefers-reduced-motion: reduce) {
   .smart-image, .smart-image.is-loaded { opacity: 1; transform: none; transition: none; }
 }
+
+/* Rythme de lecture mobile — espaces réguliers et respiration entre contenus */
+@media (max-width: 680px) {
+  .smart-services,
+  .smart-trust,
+  .smart-reviews,
+  .smart-life,
+  .smart-gallery,
+  .smart-pass,
+  .smart-faq,
+  .smart-cta { padding-top: 5.85rem; padding-bottom: 5.85rem; }
+
+  .smart-space__copy { padding-top: 5.15rem; padding-bottom: 5.15rem; }
+  .smart-kicker { margin-bottom: 1.15rem; }
+  .smart-section-heading,
+  .smart-pass__headline,
+  .smart-pass__intro { gap: 1.45rem; }
+  .smart-section-heading__text,
+  .smart-pass__intro p,
+  .smart-trust__heading > p:not(.smart-kicker),
+  .smart-reviews__copy > p:not(.smart-kicker),
+  .smart-gallery__heading > p:not(.smart-kicker),
+  .smart-faq__intro > p:not(.smart-kicker) { margin-top: 1.7rem; }
+
+  .smart-service-grid { gap: 1rem; margin-top: 2.45rem; }
+  .smart-service-card,
+  .smart-service-card:first-child { min-height: 302px; }
+  .smart-service-card p { margin-top: 1.1rem; }
+  .smart-check-list { gap: .9rem; margin: 2.4rem 0; }
+
+  .smart-trust { gap: 2.65rem; }
+  .smart-trust__grid { gap: 1rem; }
+  .smart-trust__grid article { min-height: 230px; }
+  .smart-reviews { gap: 2.55rem; }
+  .smart-life { gap: 1.15rem; }
+  .smart-life__heading { padding-bottom: .45rem; }
+  .smart-gallery { gap: 2.45rem; }
+  .smart-gallery__grid { gap: .9rem; }
+
+  .smart-pass__list { margin-top: 3rem; }
+  .smart-pass__list article { padding-block: 1.25rem; }
+  .smart-extra-services { margin-top: 1.55rem; padding: 1.15rem; }
+  .smart-faq { gap: 2.55rem; }
+  .smart-faq__accordion [data-slot="accordion-trigger"] { padding-block: 1.35rem; }
+  .smart-cta { gap: 3.45rem; }
+  .smart-cta__details { padding-top: 2rem; }
+}
+
+@media (max-width: 430px) {
+  .smart-services,
+  .smart-trust,
+  .smart-reviews,
+  .smart-life,
+  .smart-gallery,
+  .smart-pass,
+  .smart-faq,
+  .smart-cta { padding-top: 5.2rem; padding-bottom: 5.2rem; }
+
+  .smart-space__copy { padding-top: 4.75rem; padding-bottom: 4.75rem; }
+  .smart-service-card,
+  .smart-service-card:first-child { min-height: 292px; }
+  .smart-trust__grid article { min-height: 220px; }
+}

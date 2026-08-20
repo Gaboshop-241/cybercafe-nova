@@ -122,3 +122,9 @@
 - [x] Ajuster les grilles, marges, tailles de texte et zones tactiles.
 - [x] Stabiliser les boutons flottants et les sections à forte densité sur petit écran.
 - [x] Contrôler à nouveau la page complète sur les principaux formats.
+
+## Espacements mobile
+
+- [x] Identifier les sections trop denses ou trop éloignées sur mobile.
+- [x] Ajuster les marges verticales, les espacements des titres et la densité des cartes.
+- [x] Contrôler la lecture de bout en bout sur un écran de 360 px.
