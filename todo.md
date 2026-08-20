@@ -148,3 +148,9 @@
 - [x] Identifier l’origine de l’écran blanc avant le chargement du site.
 - [x] Initialiser le fond et le thème avant le rendu React.
 - [x] Vérifier le rechargement en mode clair et sombre sur mobile et ordinateur.
+
+## Animation de chargement
+
+- [x] Définir une animation SC courte, accessible et respectueuse de la réduction des mouvements.
+- [x] L’intégrer au document initial avant le montage de React.
+- [x] Vérifier sa disparition, le thème clair/sombre et le rendu mobile.
