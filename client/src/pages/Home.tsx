@@ -26,6 +26,7 @@ import {
 } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { useTheme } from "@/contexts/ThemeContext";
+import { Link } from "wouter";
 const menuItems = [
   ["Services", "services"],
   ["Le cyber", "cyber"],
@@ -249,7 +250,7 @@ export default function Home() {
 
       <footer className="smart-footer">
         <button className="smart-brand" onClick={() => navigate("accueil")}><span className="smart-brand__seal">SC</span><span className="smart-brand__copy"><strong>SMART CYBER</strong><small>PK11</small></span></button>
-        <p>© 2026 SMART CYBER PK11 · Votre espace numérique de proximité.</p>
+        <div className="smart-footer__meta"><p>© 2026 SMART CYBER PK11 · Votre espace numérique de proximité.</p><nav className="smart-footer__legal" aria-label="Informations légales"><Link href="/mentions-legales">Mentions légales</Link><Link href="/confidentialite">Confidentialité</Link><Link href="/conditions-utilisation">Conditions</Link></nav></div>
         <button onClick={() => navigate("accueil")}>RETOUR EN HAUT <ArrowUpRight size={15} /></button>
       </footer>
     </div>

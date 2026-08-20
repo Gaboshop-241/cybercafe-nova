@@ -8,9 +8,10 @@ import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
+import { LegalNotices, PrivacyPolicy, TermsOfUse } from "./pages/Legal";
 
 function Router() {
-  return <Switch><Route path="/" component={Home} /><Route path="/404" component={NotFound} /><Route component={NotFound} /></Switch>;
+  return <Switch><Route path="/" component={Home} /><Route path="/mentions-legales" component={LegalNotices} /><Route path="/confidentialite" component={PrivacyPolicy} /><Route path="/conditions-utilisation" component={TermsOfUse} /><Route path="/404" component={NotFound} /><Route component={NotFound} /></Switch>;
 }
 
 export default function App() {

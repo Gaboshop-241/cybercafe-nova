@@ -135,3 +135,10 @@
 - [x] Ajouter un sélecteur de thème accessible et mémorisé.
 - [x] Adapter les sections, textes, cartes et boutons au mode sombre.
 - [x] Tester le basculement, la persistance et la lisibilité sur mobile et ordinateur.
+
+## Pages légales
+
+- [x] Rédiger les mentions légales, la politique de confidentialité et les conditions d’utilisation.
+- [x] Créer les routes publiques et les pages accessibles correspondantes.
+- [x] Ajouter les liens légaux au pied de page.
+- [x] Vérifier le contenu, la navigation et le rendu responsive des pages.
