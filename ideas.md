@@ -129,3 +129,9 @@ Le logo est un symbole sans texte : une orbite carrée ouverte, traversée par u
 - T01–T06 forment une navigation continue : étiquettes, traits directionnels, repères terminaux, légendes-photo et appels à l’action doivent donner l’impression de parcourir une seule station numérique.
 - L’orange accueille et signale, tandis qu’une profondeur bleu-charbon reste présente dans chaque viewport majeur afin de conserver le caractère technique de la marque.
 - Les photos réelles sont traitées comme des relevés de terrain : bord technique, légende terminale et overlay charbon discret, sans masquer la réalité du lieu.
+
+## Style Decisions — ancrage de marque et signalétique pratique
+
+- Le premier écran présente le verrouillage orbital **SC + SMART CYBER PK11** comme une balise propriétaire immédiatement identifiable.
+- Chaque route T01–T06B associe son identifiant à une fonction visible : service, tarif, information pratique, visite ou contact.
+- Les overlays orange restent lumineux mais suffisamment transparents pour laisser la façade et les équipements réels faire office de preuve locale.

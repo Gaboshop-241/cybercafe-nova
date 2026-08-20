@@ -154,3 +154,17 @@
 - [x] Définir une animation SC courte, accessible et respectueuse de la réduction des mouvements.
 - [x] L’intégrer au document initial avant le montage de React.
 - [x] Vérifier sa disparition, le thème clair/sombre et le rendu mobile.
+
+## Parcours, statut et galerie vidéo
+
+- [x] Définir les animations discrètes de défilement et de changement de section.
+- [x] Ajouter un indicateur ouvert/fermé basé sur les horaires réels du cybercafé.
+- [x] Intégrer une galerie vidéo interactive et performante.
+- [x] Tester les interactions, le statut et le rendu sur ordinateur et mobile.
+
+## Clips IA à partir des photos
+
+- [x] Préparer les références visuelles et les mouvements de caméra pour les clips.
+- [x] Générer une séquence de façade cohérente avec le lieu réel.
+- [x] Intégrer le clip de façade et les aperçus photo avec une mention explicite « visualisation IA à partir de photos du lieu ».
+- [x] Vérifier la lecture, la galerie et les performances sur mobile et ordinateur.

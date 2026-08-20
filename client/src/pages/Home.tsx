@@ -17,6 +17,8 @@ import {
   MessageCircle,
   Monitor,
   Moon,
+  Pause,
+  Play,
   Printer,
   ScanLine,
   Sun,
@@ -26,6 +28,7 @@ import {
 } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { useTheme } from "@/contexts/ThemeContext";
+import { getCyberCafeStatus } from "@/lib/opening-hours";
 import { Link } from "wouter";
 const menuItems = [
   ["Services", "services"],
@@ -58,6 +61,9 @@ function scrollToSection(id: string) {
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showBackToTop, setShowBackToTop] = useState(false);
+  const [cafeStatus, setCafeStatus] = useState(() => getCyberCafeStatus());
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
@@ -69,6 +75,45 @@ export default function Home() {
     updateBackToTopVisibility();
     window.addEventListener("scroll", updateBackToTopVisibility, { passive: true });
     return () => window.removeEventListener("scroll", updateBackToTopVisibility);
+  }, []);
+
+  useEffect(() => {
+    const updateStatus = () => setCafeStatus(getCyberCafeStatus());
+    const statusTimer = window.setInterval(updateStatus, 60_000);
+    return () => window.clearInterval(statusTimer);
+  }, []);
+
+  useEffect(() => {
+    const targets = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal]"));
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion) {
+      targets.forEach((target) => target.classList.add("is-revealed"));
+      return;
+    }
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-revealed");
+          observer.unobserve(entry.target);
+        }
+      }),
+      { threshold: 0.12, rootMargin: "0px 0px -7% 0px" },
+    );
+    targets.forEach((target) => observer.observe(target));
+    const revealPassedSections = () => {
+      targets.forEach((target) => {
+        if (!target.classList.contains("is-revealed") && target.getBoundingClientRect().top < window.innerHeight * 0.92) {
+          target.classList.add("is-revealed");
+          observer.unobserve(target);
+        }
+      });
+    };
+    revealPassedSections();
+    window.addEventListener("scroll", revealPassedSections, { passive: true });
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", revealPassedSections);
+    };
   }, []);
 
   const toggleMenu = () => setMenuOpen((isOpen) => !isOpen);
@@ -83,10 +128,17 @@ export default function Home() {
     scrollToSection(id);
   };
 
+  const toggleVideo = async () => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (video.paused) await video.play();
+    else video.pause();
+  };
+
   return (
     <div className="smart-site">
       <header className="smart-header">
-        <button className="smart-brand" onClick={() => navigate("accueil")} aria-label="Retour à l’accueil SMART CYBER PK11">
+        <button className="smart-brand smart-brand--primary" onClick={() => navigate("accueil")} aria-label="Retour à l’accueil SMART CYBER PK11">
           <span className="smart-brand__seal">SC</span>
           <span className="smart-brand__orbit" aria-hidden="true" />
           <span className="smart-brand__copy"><strong>SMART CYBER</strong><small>PK11</small></span>
@@ -130,10 +182,11 @@ export default function Home() {
             </div>
           </div>
           <div className="smart-hero__brandplate"><span className="smart-hero__brandplate-mark">SC</span><div><strong>SMART CYBER PK11</strong><small>TERMINAL / PK11</small></div></div>
+          <div className="smart-hero__owner-lockup" aria-label="SMART CYBER PK11, station numérique de proximité"><span className="smart-hero__owner-orbit">SC</span><div><strong>SMART CYBER PK11</strong><small>STATION NUMÉRIQUE / CARREFOUR DU PK11</small></div></div>
           <div className="smart-hero__card">
-            <div className="smart-hero__card-top"><span className="smart-pulse" /> POSTES DISPONIBLES</div>
-            <p>Connexion, impressions<br />et démarches en ligne.</p>
-            <a href={whatsappLink("Bonjour SMART CYBER PK11, je souhaite réserver un poste et préparer ma venue.")} target="_blank" rel="noreferrer">Venir au cybercafé <ArrowUpRight size={16} /></a>
+            <div className={`smart-hero__card-top smart-open-status ${cafeStatus.isOpen ? "is-open" : "is-closed"}`}><span className="smart-pulse" /> {cafeStatus.label}</div>
+            <p>{cafeStatus.detail}</p>
+            <a href={whatsappLink("Bonjour SMART CYBER PK11, je souhaite vérifier l’ouverture et préparer ma venue.")} target="_blank" rel="noreferrer">Vérifier sur WhatsApp <ArrowUpRight size={16} /></a>
           </div>
           <div className="smart-hero__route-spine" aria-hidden="true"><span><i /> SC / ACCUEIL</span><b>→</b><span>T01 / SERVICES</span><b>→</b><span>T06 / CONTACT</span></div>
           <div className="smart-hero__vertical">SMART CYBER / PK11</div>
@@ -152,7 +205,7 @@ export default function Home() {
           <button onClick={() => navigate("pass")}>Voir les pass <ArrowUpRight size={16} /></button>
         </section>
 
-        <section className="smart-services" id="services" aria-labelledby="services-title">
+        <section className="smart-services" id="services" data-reveal aria-labelledby="services-title">
           <div className="smart-section-heading">
             <div>
               <p className="smart-kicker smart-kicker--dark"><span /> ROUTE T01 / SERVICES</p>
@@ -167,7 +220,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="smart-space" id="cyber" aria-labelledby="space-title">
+        <section className="smart-space" id="cyber" data-reveal aria-labelledby="space-title">
           <div className="smart-space__interior">
             <SmartImage src="/media/smart-cyber-interieur-1200_a7dec806.webp" srcSet="/media/smart-cyber-interieur-640_4f8a8330.webp 640w, /media/smart-cyber-interieur-1200_a7dec806.webp 1200w" sizes="(max-width: 900px) 100vw, 52vw" width={1200} height={900} loading="lazy" decoding="async" alt="Les postes de travail équipés de SMART CYBER PK11" />
             <div className="smart-image-label">LIEU RÉEL / ESPACE DE TRAVAIL</div>
@@ -186,7 +239,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="smart-trust" aria-labelledby="trust-title">
+        <section className="smart-trust" data-reveal aria-labelledby="trust-title">
           <div className="smart-trust__heading"><div className="smart-trust__beacon" aria-hidden="true"><span>SC</span><i /><small>SMART / ROUTE T02B</small></div><p className="smart-kicker smart-kicker--dark"><span /> ROUTE T02B / NOS ENGAGEMENTS</p><h2 id="trust-title">Des services clairs,<br /><em>sur lesquels compter.</em></h2><p>Avant votre venue, retrouvez l’essentiel : disponibilités, tarifs, équipements et accompagnement.</p></div>
           <div className="smart-trust__grid">
             <article><BadgeCheck /><span>01 / TRANSPARENCE</span><h3>Tarifs affichés</h3><p>Impression noir &amp; blanc à 100 FCFA, couleur à 500 FCFA et scan à 100 FCFA par page.</p></article>
@@ -197,18 +250,18 @@ export default function Home() {
           <a className="smart-trust__action" href={whatsappLink("Bonjour SMART CYBER PK11, je souhaite avoir des informations avant de venir.")} target="_blank" rel="noreferrer">Obtenir une information <ArrowUpRight size={17} /></a>
         </section>
 
-        <section className="smart-reviews" aria-labelledby="reviews-title">
+        <section className="smart-reviews" data-reveal aria-labelledby="reviews-title">
           <div className="smart-reviews__copy"><p className="smart-kicker smart-kicker--dark"><span /> ROUTE T02C / VOTRE EXPÉRIENCE</p><h2 id="reviews-title">Votre avis,<br /><em>notre meilleure amélioration.</em></h2><p>SMART CYBER PK11 publie uniquement les retours authentiques reçus avec l’accord de leurs auteurs. Votre expérience aide les prochains clients à choisir le service adapté à leurs besoins.</p><a href={whatsappLink("Bonjour SMART CYBER PK11, je souhaite laisser un avis sur mon expérience.\n\nPrénom ou initiales :\nService utilisé :\nNote sur 5 : __ / 5\nCommentaire détaillé :\n\nAutorisez-vous la publication de cet avis sur le site ? Oui / Non")} target="_blank" rel="noreferrer">Laisser un avis <MessageCircle size={18} /></a></div>
           <aside className="smart-reviews__promise"><span>AVIS AUTHENTIQUES UNIQUEMENT</span><strong>Les témoignages de clients vérifiés seront publiés ici.</strong><p>Envoyez-nous votre retour sur WhatsApp ; nous vous demanderons votre accord avant toute publication sur le site.</p><div><i /> Publication avec votre accord</div></aside>
         </section>
 
-        <section className="smart-life" aria-labelledby="life-title">
+        <section className="smart-life" data-reveal aria-labelledby="life-title">
           <div className="smart-life__heading"><p className="smart-kicker smart-kicker--dark"><span /> ROUTE T03 / LA VIE AU CYBER</p><h2 id="life-title">Ici, les projets<br /><em>prennent vie.</em></h2></div>
           <div className="smart-life__image smart-life__image--study"><SmartImage src="/media/smart-cyber-etudes-1000_d2767b4e.webp" srcSet="/media/smart-cyber-etudes-640_ec5b113f.webp 640w, /media/smart-cyber-etudes-1000_d2767b4e.webp 1000w" sizes="(max-width: 680px) 100vw, 34vw" width={1000} height={750} loading="lazy" decoding="async" alt="Clients adultes utilisant les ordinateurs de SMART CYBER PK11" /><div><span>01 / ÉTUDIER</span><strong>Apprendre, chercher,<br />préparer l’avenir.</strong></div></div>
           <div className="smart-life__image smart-life__image--help"><SmartImage src="/media/smart-cyber-services-1000_ee867ce6.webp" srcSet="/media/smart-cyber-services-640_34adb619.webp 640w, /media/smart-cyber-services-1000_ee867ce6.webp 1000w" sizes="(max-width: 680px) 100vw, 34vw" width={1000} height={750} loading="lazy" decoding="async" alt="Accompagnement d’un client au sein de SMART CYBER PK11" /><div><span>02 / AVANCER</span><strong>Un conseil utile,<br />au bon moment.</strong></div></div>
         </section>
 
-        <section className="smart-gallery" aria-labelledby="gallery-title">
+        <section className="smart-gallery" data-reveal aria-labelledby="gallery-title">
           <div className="smart-gallery__heading"><p className="smart-kicker smart-kicker--dark"><span /> ROUTE T04 / GALERIE DU CYBER</p><h2 id="gallery-title">Un lieu réel,<br /><em>prêt à vous accueillir.</em></h2><p>Découvrez SMART CYBER PK11, ses postes équipés et l’accompagnement proposé au quotidien.</p></div>
           <div className="smart-gallery__grid">
             <figure className="smart-gallery__item smart-gallery__item--facade"><SmartImage src="/media/smart-cyber-facade-1440_7c85e1db.webp" srcSet="/media/smart-cyber-facade-720_a4ef08b5.webp 720w, /media/smart-cyber-facade-1440_7c85e1db.webp 1440w" sizes="(max-width: 680px) 100vw, 36vw" width={1440} height={1080} loading="lazy" decoding="async" alt="Façade de SMART CYBER PK11 au Carrefour du PK11 Marché" /><figcaption>CARREFOUR DU PK11 MARCHÉ</figcaption></figure>
@@ -218,8 +271,29 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="smart-pass" id="pass" aria-labelledby="pass-title">
-          <div className="smart-pass__headline"><p className="smart-kicker smart-kicker--dark"><span /> ROUTE T05 / TARIFS &amp; PASS</p><h2 id="pass-title">Des prix clairs,<br /><em>un service utile.</em></h2></div>
+        <section className="smart-video-gallery" data-reveal aria-labelledby="video-gallery-title">
+          <div className="smart-video-gallery__intro">
+            <p className="smart-kicker"><span /> ROUTE T04B / VISITE VIDÉO</p>
+            <h2 id="video-gallery-title">Une entrée,<br /><em>en mouvement.</em></h2>
+            <p>Découvrez une courte visite de la façade de SMART CYBER PK11 avant votre passage au Carrefour du PK11 Marché.</p>
+            <div className="smart-video-gallery__notice"><span>SC</span><p>Visualisation IA créée à partir d’une photo réelle du lieu.</p></div>
+          </div>
+          <div className="smart-video-gallery__stage">
+            <div className="smart-video-gallery__screen">
+              <video ref={videoRef} className="smart-video-gallery__player" controls playsInline preload="metadata" poster="/media/smart-cyber-facade-1440_7c85e1db.webp" onPlay={() => setIsVideoPlaying(true)} onPause={() => setIsVideoPlaying(false)} onEnded={() => setIsVideoPlaying(false)} aria-label="Courte visite vidéo de la façade de SMART CYBER PK11">
+                <source src="/manus-storage/smart-cyber-facade-motion_1e567c90.mp4" type="video/mp4" />
+                Votre navigateur ne prend pas en charge cette vidéo.
+              </video>
+              {!isVideoPlaying && <button className="smart-video-gallery__play" onClick={toggleVideo} aria-label="Lire la visite vidéo"><Play size={22} fill="currentColor" /></button>}
+              {isVideoPlaying && <button className="smart-video-gallery__pause" onClick={toggleVideo} aria-label="Mettre la visite vidéo en pause"><Pause size={16} fill="currentColor" /></button>}
+              <span className="smart-video-gallery__tag">CLIP 01 / FAÇADE</span>
+            </div>
+            <div className="smart-video-gallery__footer"><span><i /> VIDÉO 16:9 · 6 SEC.</span><span>PK11 / STATION NUMÉRIQUE</span><button onClick={toggleVideo}>{isVideoPlaying ? "Mettre en pause" : "Lire le clip"} <ArrowUpRight size={15} /></button></div>
+          </div>
+        </section>
+
+        <section className="smart-pass" id="pass" data-reveal aria-labelledby="pass-title">
+          <div className="smart-pass__headline"><p className="smart-kicker smart-kicker--dark"><span /> ROUTE T05 / TARIFS &amp; PASS</p><h2 id="pass-title">Des prix clairs,<br /><em>un service utile.</em></h2><div className="smart-route-status"><span><i /> T05 / TARIFS AFFICHÉS</span><b>→</b><span>CHOISIR · ÉCRIRE · VENIR</span></div></div>
           <div className="smart-pass__intro"><p>Réservez votre service par WhatsApp ou rendez-vous directement au cybercafé. Tous les tarifs sont exprimés en francs CFA.</p><div><Clock3 size={19} /> Sans rendez-vous</div></div>
           <div className="smart-pass__list">
             <article><span>01</span><div><Wifi /><h3>Ordinateur, Wi-Fi et climatisation</h3><p>Utilisez un ordinateur connecté à Internet, avec Wi-Fi et climatisation.</p></div><strong className="smart-price">1 000 FCFA <small>/ heure</small></strong><a href={whatsappLink("Bonjour SMART CYBER PK11, je souhaite réserver un ordinateur avec Wi-Fi et climatisation à 1 000 FCFA par heure.")} target="_blank" rel="noreferrer">Réserver <ArrowUpRight size={17} /></a></article>
@@ -229,8 +303,8 @@ export default function Home() {
           <div className="smart-extra-services"><span>EN PLUS, SUR DEMANDE</span><p>Téléchargement de films, de musique et de jeux vidéo · Assistance pour les démarches en ligne · Mise en page de documents et accompagnement numérique.</p><a href={whatsappLink("Bonjour SMART CYBER PK11, je souhaite connaître les services numériques disponibles.")} target="_blank" rel="noreferrer">Demander un service <ArrowUpRight size={17} /></a></div>
         </section>
 
-        <section className="smart-faq" aria-labelledby="faq-title">
-          <div className="smart-faq__intro"><p className="smart-kicker"><span /> ROUTE T05B / QUESTIONS UTILES</p><h2 id="faq-title">Les réponses<br /><em>à vos questions.</em></h2><p>Consultez les informations essentielles sur les tarifs, les horaires et les services. Une question précise ? Écrivez-nous directement sur WhatsApp.</p><a href={whatsappLink("Bonjour SMART CYBER PK11, j’ai une question sur vos services.")} target="_blank" rel="noreferrer">Poser une question <MessageCircle size={17} /></a></div>
+        <section className="smart-faq" data-reveal aria-labelledby="faq-title">
+          <div className="smart-faq__intro"><p className="smart-kicker"><span /> ROUTE T05B / QUESTIONS UTILES</p><h2 id="faq-title">Les réponses<br /><em>à vos questions.</em></h2><p>Consultez les informations essentielles sur les tarifs, les horaires et les services. Une question précise ? Écrivez-nous directement sur WhatsApp.</p><div className="smart-faq__route-board"><span><i /> T05B / INFORMATIONS PRATIQUES</span><b>→</b><span>RÉPONSE RAPIDE</span></div><a href={whatsappLink("Bonjour SMART CYBER PK11, j’ai une question sur vos services.")} target="_blank" rel="noreferrer">Poser une question <MessageCircle size={17} /></a></div>
           <Accordion type="single" collapsible className="smart-faq__accordion">
             <AccordionItem value="hours"><AccordionTrigger>Quels sont vos jours et horaires d’ouverture ?</AccordionTrigger><AccordionContent>SMART CYBER PK11 est ouvert lundi, mardi, mercredi et vendredi, de 8 h à 20 h. Le cybercafé est fermé le jeudi, le samedi et le dimanche.</AccordionContent></AccordionItem>
             <AccordionItem value="computer"><AccordionTrigger>Combien coûte l’utilisation d’un ordinateur ?</AccordionTrigger><AccordionContent>Un poste informatique avec Wi‑Fi et climatiseur coûte 1 000 FCFA par heure.</AccordionContent></AccordionItem>
@@ -241,9 +315,9 @@ export default function Home() {
           </Accordion>
         </section>
 
-        <section className="smart-cta" aria-labelledby="cta-title">
+        <section className="smart-cta" data-reveal aria-labelledby="cta-title">
           <div><p className="smart-kicker"><span /> ROUTE T06 / PRÊT MAINTENANT</p><h2 id="cta-title">Un besoin en ligne ?<br /><em>Votre poste vous attend.</em></h2><p>Pour une recherche, un document ou une démarche, rendez-vous directement au Carrefour du PK11 Marché.</p><a className="smart-button smart-button--orange" href={whatsappLink("Bonjour SMART CYBER PK11, je souhaite obtenir des informations sur vos services.")} target="_blank" rel="noreferrer">Écrire sur WhatsApp <MessageCircle size={19} /></a></div>
-          <div className="smart-cta__details"><span>ADRESSE</span><strong>Carrefour du PK11 Marché, Gabon</strong><span>HORAIRES</span><strong>Lun · Mar · Mer · Ven : 8 h–20 h</strong><span>FERMÉ</span><strong>Jeu · Sam · Dim</strong><span>WHATSAPP</span><strong>+241 05 75 10 36</strong></div>
+          <div className="smart-cta__details"><span>STATUT ACTUEL</span><strong className={cafeStatus.isOpen ? "smart-cta__open" : "smart-cta__closed"}><i /> {cafeStatus.label}</strong><span>ADRESSE</span><strong>Carrefour du PK11 Marché, Gabon</strong><span>HORAIRES</span><strong>Lun · Mar · Mer · Ven : 8 h–20 h</strong><span>FERMÉ</span><strong>Jeu · Sam · Dim</strong><span>WHATSAPP</span><strong>+241 05 75 10 36</strong></div>
         </section>
       </main>
 
