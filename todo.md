@@ -115,3 +115,10 @@
 - [x] Afficher un bouton flottant après un défilement suffisant.
 - [x] Ajouter une apparition progressive et un retour fluide vers l’accueil.
 - [x] Tester le bouton sur ordinateur, mobile et avec réduction des mouvements.
+
+## Responsivité
+
+- [x] Vérifier les formats mobile, tablette, ordinateur portable et grand écran.
+- [x] Ajuster les grilles, marges, tailles de texte et zones tactiles.
+- [x] Stabiliser les boutons flottants et les sections à forte densité sur petit écran.
+- [x] Contrôler à nouveau la page complète sur les principaux formats.

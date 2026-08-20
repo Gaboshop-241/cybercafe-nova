@@ -1,0 +1,80 @@
+/*
+ * SMART CYBER PK11 — ajustements responsives.
+ * Préserver une station numérique claire, tactile et lisible de 360 px aux grands écrans.
+ */
+
+@media (min-width: 681px) and (max-width: 980px) {
+  .smart-header { width: calc(100% - 2.25rem); }
+  .smart-desktop-nav { gap: 0; margin-right: .35rem; }
+  .smart-desktop-nav button { padding-inline: .5rem; font-size: .68rem; }
+  .smart-visit-button { padding-inline: .62rem; font-size: .62rem; }
+  .smart-hero { min-height: 680px; padding-top: 8.2rem; padding-bottom: 3.8rem; }
+  .smart-hero__content { width: min(610px, 64vw); }
+  .smart-hero__card { width: 220px; }
+  .smart-terminal-panel { gap: 1rem; }
+  .smart-terminal-panel__route { gap: .48rem; font-size: .5rem; }
+  .smart-space__interior { min-height: 570px; }
+  .smart-trust, .smart-reviews, .smart-gallery, .smart-faq { padding-inline: 2rem; }
+  .smart-cta__details strong { font-size: .92rem; }
+}
+
+@media (max-width: 680px) {
+  body { overflow-x: hidden; }
+  .smart-header { gap: .55rem; }
+  .smart-brand__copy strong { font-size: .72rem; }
+  .smart-brand__copy small { font-size: .48rem; }
+  .smart-hero { min-height: 745px; }
+  .smart-hero__content { padding-bottom: 12.25rem; }
+  .smart-hero__lead { max-width: 29rem; }
+  .smart-hero__card { min-height: 138px; }
+  .smart-hero__card a { min-height: 36px; }
+  .smart-ribbon { gap: .52rem; font-size: .48rem; }
+  .smart-ribbon i { flex-basis: 8px; }
+  .smart-terminal-panel__route { flex-wrap: wrap; justify-content: flex-start; row-gap: .58rem; white-space: normal; }
+  .smart-terminal-panel__route span { flex: 1 1 8rem; }
+  .smart-terminal-panel__route i { display: none; }
+  .smart-section-heading__text { max-width: 35rem; }
+  .smart-service-card__line { max-width: 52%; text-align: right; }
+  .smart-service-card h3 { max-width: 74%; }
+  .smart-space__interior p { max-width: 17rem; }
+  .smart-trust__heading > p:not(.smart-kicker), .smart-reviews__copy > p:not(.smart-kicker), .smart-gallery__heading > p:not(.smart-kicker) { max-width: 31rem; }
+  .smart-pass__list h3 { font-size: 1.04rem; line-height: 1.08; }
+  .smart-pass__list p { font-size: .69rem; }
+  .smart-extra-services { padding: 1rem; }
+  .smart-faq__accordion [data-slot="accordion-trigger"] { min-height: 56px; text-align: left; }
+  .smart-cta__details strong { font-size: .91rem; }
+  .smart-footer { gap: .85rem; }
+}
+
+@media (max-width: 430px) {
+  .smart-header { width: calc(100% - .9rem); padding: .56rem .62rem .56rem .72rem; }
+  .smart-brand { gap: .42rem; }
+  .smart-brand__seal { width: 29px; height: 29px; font-size: .62rem; }
+  .smart-brand__copy strong { font-size: .63rem; letter-spacing: .095em; }
+  .smart-brand__copy small { font-size: .43rem; }
+  .smart-hero { min-height: 720px; padding-inline: 1.05rem; }
+  .smart-hero__content { padding-bottom: 11.6rem; }
+  h1 { font-size: clamp(3.05rem, 17vw, 4.25rem); }
+  .smart-hero__lead { margin-top: 1.35rem; font-size: .8rem; line-height: 1.65; }
+  .smart-hero__buttons { gap: .78rem; margin-top: 1.5rem; }
+  .smart-button { min-height: 45px; padding: .7rem .88rem; font-size: .7rem; }
+  .smart-hero__brandplate { max-width: 156px; padding: .55rem .62rem; }
+  .smart-hero__brandplate strong { font-size: .49rem; }
+  .smart-hero__brandplate small { font-size: .42rem; }
+  .smart-hero__card { right: 1.05rem; bottom: 1.05rem; left: 1.05rem; padding: .9rem; }
+  .smart-hero__card p { margin: 1rem 0 .6rem; font-size: .88rem; }
+  .smart-services, .smart-pass, .smart-space__copy, .smart-life, .smart-gallery, .smart-trust, .smart-reviews, .smart-faq, .smart-cta { padding-inline: 1.05rem; }
+  .smart-service-card { min-height: 270px; padding: 1rem; }
+  .smart-service-card__line { top: 1rem; right: 1rem; font-size: .47rem; }
+  .smart-service-card a { right: 1rem; bottom: 1rem; }
+  .smart-space__interior { min-height: 420px; }
+  .smart-space__interior p { left: 1.05rem; bottom: 1rem; font-size: 1.02rem; }
+  .smart-life__image { min-height: 310px; }
+  .smart-gallery__item { min-height: 160px; }
+  .smart-gallery__item--facade { min-height: 220px; }
+  .smart-pass__list article { align-items: start; padding-block: 1rem; }
+  .smart-pass__list a { margin-top: .12rem; }
+  .smart-cta { padding-top: 4.4rem; padding-bottom: 4.4rem; }
+  .smart-cta__details { margin-top: .4rem; }
+  .smart-whatsapp, .smart-back-to-top { right: .78rem; }
+}
