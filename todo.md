@@ -102,3 +102,10 @@
 - [x] Respecter la préférence de réduction des mouvements pour les images.
 - [x] Demander une note sur 5 et un commentaire détaillé dans le message WhatsApp d’avis.
 - [x] Tester les transitions, compiler et synchroniser GitHub/Vercel.
+
+## Révision éditoriale française
+
+- [x] Relire les titres, accroches, boutons, services et messages de contact.
+- [x] Réécrire les formulations pour un français clair, naturel et professionnel.
+- [x] Vérifier que les tarifs, horaires, adresse et coordonnées restent exacts.
+- [x] Contrôler le rendu puis synchroniser la version éditoriale.
