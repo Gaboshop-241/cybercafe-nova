@@ -21,6 +21,12 @@ def main() -> None:
             errors: list[str] = []
             page.on("pageerror", lambda error: errors.append(f"pageerror: {error}"))
             page.on("console", lambda message: errors.append(f"console: {message.text}") if message.type == "error" else None)
+            def record_failed_request(request) -> None:
+                if "smart-cyber-facade-motion" in request.url and request.failure == "net::ERR_ABORTED":
+                    return
+                errors.append(f"requestfailed: {request.url} :: {request.failure}")
+
+            page.on("requestfailed", record_failed_request)
 
             response = page.goto(PRODUCTION_URL, wait_until="networkidle")
             if response is None:
@@ -34,6 +40,10 @@ def main() -> None:
             video = page.locator(".smart-video-gallery__player")
             video.scroll_into_view_if_needed()
             page.wait_for_function("document.querySelector('.smart-video-gallery__player').readyState >= 1", timeout=10000)
+            page.locator(".smart-video-gallery__play").click()
+            page.wait_for_timeout(300)
+            if video.evaluate("node => node.paused"):
+                raise RuntimeError("La lecture vidéo ne démarre pas en production.")
             if errors:
                 raise RuntimeError("Erreurs navigateur détectées : " + " | ".join(errors))
             print("Production validée : en-têtes CSP actifs, démarrage, interface et vidéo fonctionnels sans erreur navigateur.")
