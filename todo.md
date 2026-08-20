@@ -128,3 +128,10 @@
 - [x] Identifier les sections trop denses ou trop éloignées sur mobile.
 - [x] Ajuster les marges verticales, les espacements des titres et la densité des cartes.
 - [x] Contrôler la lecture de bout en bout sur un écran de 360 px.
+
+## Mode clair et sombre
+
+- [x] Définir une palette sombre cohérente avec la marque orange et charbon.
+- [x] Ajouter un sélecteur de thème accessible et mémorisé.
+- [x] Adapter les sections, textes, cartes et boutons au mode sombre.
+- [x] Tester le basculement, la persistance et la lisibilité sur mobile et ordinateur.

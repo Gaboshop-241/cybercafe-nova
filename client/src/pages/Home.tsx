@@ -1,5 +1,5 @@
 /**
- * SMART CYBER PK11 — identité orange et blanc, chaleureuse et authentique.
+ * SMART CYBER PK11 — identité orange et ivoire, déclinée dans un mode sombre charbon.
  * Le design met en avant les photos du vrai lieu : façade, postes réels et vie quotidienne.
  */
 import { useEffect, useRef, useState, type ImgHTMLAttributes } from "react";
@@ -16,13 +16,16 @@ import {
   Menu,
   MessageCircle,
   Monitor,
+  Moon,
   Printer,
   ScanLine,
+  Sun,
   UsersRound,
   Wifi,
   X,
 } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { useTheme } from "@/contexts/ThemeContext";
 const menuItems = [
   ["Services", "services"],
   ["Le cyber", "cyber"],
@@ -54,6 +57,11 @@ function scrollToSection(id: string) {
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showBackToTop, setShowBackToTop] = useState(false);
+  const { theme, toggleTheme } = useTheme();
+
+  useEffect(() => {
+    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", theme === "dark" ? "#101b21" : "#fffaf4");
+  }, [theme]);
 
   useEffect(() => {
     const updateBackToTopVisibility = () => setShowBackToTop(window.scrollY > 460);
@@ -88,6 +96,10 @@ export default function Home() {
 
         <div className="smart-header__action">
           <a className="smart-visit-button" href={whatsappLink("Bonjour SMART CYBER PK11, je souhaite préparer ma venue.")} target="_blank" rel="noreferrer">Préparer ma venue <ArrowUpRight size={16} /></a>
+          <button className="smart-theme-toggle" onClick={() => toggleTheme?.()} aria-label={theme === "light" ? "Activer le mode sombre" : "Activer le mode clair"} aria-pressed={theme === "dark"} title={theme === "light" ? "Activer le mode sombre" : "Activer le mode clair"}>
+            {theme === "light" ? <Moon size={17} /> : <Sun size={17} />}
+            <span>{theme === "light" ? "Sombre" : "Clair"}</span>
+          </button>
           <button className="smart-menu-button" aria-label={menuOpen ? "Fermer le menu" : "Ouvrir le menu"} aria-controls="smart-mobile-navigation" aria-expanded={menuOpen} onClick={toggleMenu}>
             {menuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
