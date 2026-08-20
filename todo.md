@@ -95,3 +95,10 @@
 - [x] Ajouter une section invitant les clients à laisser un avis réel sur WhatsApp.
 - [x] Préparer un emplacement pour publier uniquement les témoignages validés.
 - [x] Vérifier les images, le favicon et le parcours d’avis dans le build Vercel.
+
+## Fondu d’images et avis détaillé
+
+- [x] Ajouter une apparition progressive pour les images chargées avec succès.
+- [x] Respecter la préférence de réduction des mouvements pour les images.
+- [x] Demander une note sur 5 et un commentaire détaillé dans le message WhatsApp d’avis.
+- [x] Tester les transitions, compiler et synchroniser GitHub/Vercel.

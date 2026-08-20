@@ -406,6 +406,8 @@ button:focus-visible, a:focus-visible { outline: 2px solid #f2b84b; outline-offs
 
 /* Interactions service + FAQ — station numérique orange */
 .smart-service-card, .smart-trust__grid article { isolation: isolate; transition: transform .34s cubic-bezier(.23,1,.32,1), box-shadow .34s cubic-bezier(.23,1,.32,1), border-color .24s ease; }
+.smart-image { opacity: 0; transform: translateY(8px) scale(1.012); transition: opacity .48s cubic-bezier(.23,1,.32,1), transform .72s cubic-bezier(.23,1,.32,1); }
+.smart-image.is-loaded { opacity: 1; transform: translateY(0) scale(1); }
 .smart-service-card::before { content: ""; position: absolute; z-index: -1; inset: 0; background: radial-gradient(circle at 88% 12%, rgba(255,250,244,.22), transparent 36%); opacity: 0; transform: scale(.84); transition: opacity .34s ease, transform .5s cubic-bezier(.23,1,.32,1); }
 .smart-service-card > svg, .smart-service-card__line, .smart-service-card h3, .smart-service-card p { transition: transform .34s cubic-bezier(.23,1,.32,1), color .24s ease; }
 .smart-trust__grid article::before { content: ""; position: absolute; z-index: -1; inset: 0; background: linear-gradient(135deg, rgba(236,100,46,.18), transparent 55%); opacity: 0; transition: opacity .3s ease; }
@@ -480,4 +482,8 @@ button:focus-visible, a:focus-visible { outline: 2px solid #f2b84b; outline-offs
   .smart-hero__orbit { width: 150px; height: 150px; opacity: .86; }
   .smart-services::after, .smart-trust::after, .smart-gallery::after, .smart-pass::after, .smart-faq::before { right: 1.3rem; font-size: .43rem; }
   .smart-kicker::after { width: 28px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .smart-image, .smart-image.is-loaded { opacity: 1; transform: none; transition: none; }
 }

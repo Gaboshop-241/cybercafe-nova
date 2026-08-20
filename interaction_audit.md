@@ -18,6 +18,10 @@ La version WebP de la façade est servie avec succès depuis `/media/` dans l’
 
 Le bouton « Laisser un avis » génère un message WhatsApp prérempli comprenant les champs prénom ou initiales, service utilisé et avis. La section de confiance rappelle que toute publication exige l’accord du client ; aucun témoignage fictif n’est affiché.
 
+## Fondus d’images et avis détaillé
+
+Les images présentes au premier écran se placent dans l’état `is-loaded` après leur chargement et apparaissent avec une transition d’opacité et de déplacement courte. Les images plus bas restent volontairement en chargement différé jusqu’au défilement, ce qui préserve la vitesse de la page. Le message « Laisser un avis » contient maintenant une note sur 5, un commentaire détaillé et l’accord de publication.
+
 ## Survols
 
 Les cartes de services et les cartes de confiance possèdent désormais des transitions GPU sur `transform`, `opacity`, couleurs et ombres. Les survols ne sont appliqués qu’aux appareils dotés d’un pointeur fin ; l’expérience tactile reste stable.
