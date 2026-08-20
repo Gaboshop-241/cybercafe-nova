@@ -281,7 +281,7 @@ export default function Home() {
           <div className="smart-video-gallery__stage">
             <div className="smart-video-gallery__screen">
               <video ref={videoRef} className="smart-video-gallery__player" controls playsInline preload="metadata" poster="/media/smart-cyber-facade-1440_7c85e1db.webp" onPlay={() => setIsVideoPlaying(true)} onPause={() => setIsVideoPlaying(false)} onEnded={() => setIsVideoPlaying(false)} aria-label="Courte visite vidéo de la façade de SMART CYBER PK11">
-                <source src="/manus-storage/smart-cyber-facade-motion_1e567c90.mp4" type="video/mp4" />
+                <source src="https://novacyber-ksxduw4u.manus.space/manus-storage/smart-cyber-facade-motion_1e567c90.mp4" type="video/mp4" />
                 Votre navigateur ne prend pas en charge cette vidéo.
               </video>
               {!isVideoPlaying && <button className="smart-video-gallery__play" onClick={toggleVideo} aria-label="Lire la visite vidéo"><Play size={22} fill="currentColor" /></button>}

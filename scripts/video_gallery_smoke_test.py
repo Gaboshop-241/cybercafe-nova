@@ -15,6 +15,7 @@ def verify(page) -> None:
     video = page.locator(".smart-video-gallery__player")
     if not video.evaluate("node => node.currentSrc.includes('smart-cyber-facade-motion_1e567c90.mp4')"):
         raise RuntimeError("La source vidéo intégrée est incorrecte.")
+    page.wait_for_function("document.querySelector('.smart-video-gallery__player').readyState >= 1", timeout=10000)
     if video.evaluate("node => node.readyState") < 1:
         raise RuntimeError("Les métadonnées de la vidéo ne sont pas disponibles.")
 

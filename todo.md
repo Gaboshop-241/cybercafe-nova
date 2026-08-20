@@ -168,3 +168,11 @@
 - [x] Générer une séquence de façade cohérente avec le lieu réel.
 - [x] Intégrer le clip de façade et les aperçus photo avec une mention explicite « visualisation IA à partir de photos du lieu ».
 - [x] Vérifier la lecture, la galerie et les performances sur mobile et ordinateur.
+
+## Audit de sécurité — 20 points
+
+- [ ] Contrôler les en-têtes HTTP, HTTPS et les politiques du navigateur.
+- [ ] Examiner le code client, les dépendances et les ressources tierces.
+- [ ] Vérifier les routes, les fichiers publics et les comportements de navigation.
+- [ ] Corriger les risques relevant du site statique.
+- [ ] Revalider les 20 contrôles et rédiger le rapport de sécurité.
