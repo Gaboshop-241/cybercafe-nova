@@ -8,6 +8,7 @@ import {
   ArrowUpRight,
   BadgeCheck,
   Check,
+  ChevronUp,
   Clock3,
   FileText,
   GraduationCap,
@@ -52,8 +53,21 @@ function scrollToSection(id: string) {
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [showBackToTop, setShowBackToTop] = useState(false);
+
+  useEffect(() => {
+    const updateBackToTopVisibility = () => setShowBackToTop(window.scrollY > 460);
+    updateBackToTopVisibility();
+    window.addEventListener("scroll", updateBackToTopVisibility, { passive: true });
+    return () => window.removeEventListener("scroll", updateBackToTopVisibility);
+  }, []);
 
   const toggleMenu = () => setMenuOpen((isOpen) => !isOpen);
+
+  const returnToTop = () => {
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+  };
 
   const navigate = (id: string) => {
     setMenuOpen(false);
@@ -218,6 +232,7 @@ export default function Home() {
         </section>
       </main>
 
+      <button className={`smart-back-to-top ${showBackToTop ? "is-visible" : ""}`} onClick={returnToTop} aria-label="Retourner en haut de la page" aria-hidden={!showBackToTop} tabIndex={showBackToTop ? 0 : -1}><ChevronUp size={18} /><span>Haut</span></button>
       <a className="smart-whatsapp" href={whatsappLink("Bonjour SMART CYBER PK11, je souhaite avoir des informations sur vos services.")} target="_blank" rel="noreferrer" aria-label="Écrire à SMART CYBER PK11 sur WhatsApp"><MessageCircle size={23} /><span>WhatsApp</span></a>
 
       <footer className="smart-footer">

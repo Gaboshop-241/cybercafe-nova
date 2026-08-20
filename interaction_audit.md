@@ -22,6 +22,10 @@ Le bouton « Laisser un avis » génère un message WhatsApp prérempli comprena
 
 Les images présentes au premier écran se placent dans l’état `is-loaded` après leur chargement et apparaissent avec une transition d’opacité et de déplacement courte. Les images plus bas restent volontairement en chargement différé jusqu’au défilement, ce qui préserve la vitesse de la page. Le message « Laisser un avis » contient maintenant une note sur 5, un commentaire détaillé et l’accord de publication.
 
+## Retour en haut de page
+
+Le bouton flottant « Haut » apparaît après le seuil de défilement prévu, sans gêner le bouton WhatsApp. Depuis le bas de page, son activation déclenche un retour animé vers l’accueil. La préférence de réduction des mouvements désactive cette transition au profit d’un retour immédiat.
+
 ## Survols
 
 Les cartes de services et les cartes de confiance possèdent désormais des transitions GPU sur `transform`, `opacity`, couleurs et ombres. Les survols ne sont appliqués qu’aux appareils dotés d’un pointeur fin ; l’expérience tactile reste stable.

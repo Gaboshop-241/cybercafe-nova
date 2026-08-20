@@ -109,3 +109,9 @@
 - [x] Réécrire les formulations pour un français clair, naturel et professionnel.
 - [x] Vérifier que les tarifs, horaires, adresse et coordonnées restent exacts.
 - [x] Contrôler le rendu puis synchroniser la version éditoriale.
+
+## Retour en haut de page
+
+- [x] Afficher un bouton flottant après un défilement suffisant.
+- [x] Ajouter une apparition progressive et un retour fluide vers l’accueil.
+- [x] Tester le bouton sur ordinateur, mobile et avec réduction des mouvements.
