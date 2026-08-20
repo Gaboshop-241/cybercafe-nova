@@ -88,6 +88,7 @@ export default function Home() {
       <header className="smart-header">
         <button className="smart-brand" onClick={() => navigate("accueil")} aria-label="Retour à l’accueil SMART CYBER PK11">
           <span className="smart-brand__seal">SC</span>
+          <span className="smart-brand__orbit" aria-hidden="true" />
           <span className="smart-brand__copy"><strong>SMART CYBER</strong><small>PK11</small></span>
         </button>
 
@@ -134,6 +135,7 @@ export default function Home() {
             <p>Connexion, impressions<br />et démarches en ligne.</p>
             <a href={whatsappLink("Bonjour SMART CYBER PK11, je souhaite réserver un poste et préparer ma venue.")} target="_blank" rel="noreferrer">Venir au cybercafé <ArrowUpRight size={16} /></a>
           </div>
+          <div className="smart-hero__route-spine" aria-hidden="true"><span><i /> SC / ACCUEIL</span><b>→</b><span>T01 / SERVICES</span><b>→</b><span>T06 / CONTACT</span></div>
           <div className="smart-hero__vertical">SMART CYBER / PK11</div>
         </section>
 
@@ -249,7 +251,7 @@ export default function Home() {
       <a className="smart-whatsapp" href={whatsappLink("Bonjour SMART CYBER PK11, je souhaite avoir des informations sur vos services.")} target="_blank" rel="noreferrer" aria-label="Écrire à SMART CYBER PK11 sur WhatsApp"><MessageCircle size={23} /><span>WhatsApp</span></a>
 
       <footer className="smart-footer">
-        <button className="smart-brand" onClick={() => navigate("accueil")}><span className="smart-brand__seal">SC</span><span className="smart-brand__copy"><strong>SMART CYBER</strong><small>PK11</small></span></button>
+        <button className="smart-brand" onClick={() => navigate("accueil")}><span className="smart-brand__seal">SC</span><span className="smart-brand__orbit" aria-hidden="true" /><span className="smart-brand__copy"><strong>SMART CYBER</strong><small>PK11</small></span></button>
         <div className="smart-footer__meta"><p>© 2026 SMART CYBER PK11 · Votre espace numérique de proximité.</p><nav className="smart-footer__legal" aria-label="Informations légales"><Link href="/mentions-legales">Mentions légales</Link><Link href="/confidentialite">Confidentialité</Link><Link href="/conditions-utilisation">Conditions</Link></nav></div>
         <button onClick={() => navigate("accueil")}>RETOUR EN HAUT <ArrowUpRight size={15} /></button>
       </footer>

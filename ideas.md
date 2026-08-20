@@ -122,3 +122,10 @@ Le logo est un symbole sans texte : une orbite carrée ouverte, traversée par u
 
 - La façade et les photographies réelles restent visibles sous les overlays : l’orange crée l’accueil, le charbon apporte la profondeur technique.
 - Chaque route T01–T06 est séparée par une frontière orange discrète et une ligne de signalétique lisible ; la progression doit rester perceptible sur fond ivoire comme sur fond charbon.
+
+## Style Decisions — signature de route renforcée
+
+- Le verrouillage **SC orbital + mot-signe compact** constitue un repère principal dans l’en-tête, au premier écran, aux transitions de route et au pied de page.
+- T01–T06 forment une navigation continue : étiquettes, traits directionnels, repères terminaux, légendes-photo et appels à l’action doivent donner l’impression de parcourir une seule station numérique.
+- L’orange accueille et signale, tandis qu’une profondeur bleu-charbon reste présente dans chaque viewport majeur afin de conserver le caractère technique de la marque.
+- Les photos réelles sont traitées comme des relevés de terrain : bord technique, légende terminale et overlay charbon discret, sans masquer la réalité du lieu.

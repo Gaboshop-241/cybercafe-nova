@@ -142,3 +142,9 @@
 - [x] Créer les routes publiques et les pages accessibles correspondantes.
 - [x] Ajouter les liens légaux au pied de page.
 - [x] Vérifier le contenu, la navigation et le rendu responsive des pages.
+
+## Flash de chargement
+
+- [x] Identifier l’origine de l’écran blanc avant le chargement du site.
+- [x] Initialiser le fond et le thème avant le rendu React.
+- [x] Vérifier le rechargement en mode clair et sombre sur mobile et ordinateur.

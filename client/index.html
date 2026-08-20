@@ -21,6 +21,24 @@
     <meta name="twitter:description" content="Vos démarches, impressions, formations et services numériques au PK11." />
     <meta name="twitter:image" content="https://cybercafe-nova.vercel.app/media/smart-cyber-facade-1440_7c85e1db.webp" />
     <title>SMART CYBER PK11 | Internet, impression & formations au PK11</title>
+    <script>
+      (() => {
+        try {
+          const theme = localStorage.getItem("theme");
+          if (theme === "dark") {
+            document.documentElement.classList.add("dark");
+            document.querySelector('meta[name="theme-color"]')?.setAttribute("content", "#101b21");
+          }
+        } catch (_) {
+          // Le site reste utilisable si le stockage local est indisponible.
+        }
+      })();
+    </script>
+    <style>
+      html, body, #root { min-height: 100%; margin: 0; background: #fffaf4; color: #2b2724; }
+      html.dark, html.dark body, html.dark #root { background: #101b21; color: #fffaf4; }
+      .seo-prerender { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); clip-path: inset(50%); white-space: nowrap; }
+    </style>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
